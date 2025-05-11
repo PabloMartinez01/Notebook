@@ -1,6 +1,7 @@
 package com.pablodev.notebook.services
 
 import com.pablodev.notebook.dto.NoteRequest
+import com.pablodev.notebook.dto.NoteResponse
 import com.pablodev.notebook.entities.Note
 import com.pablodev.notebook.mappers.NoteMapper
 import com.pablodev.notebook.repositories.NoteRepository
@@ -13,14 +14,14 @@ class NoteService(
     private val noteMapper: NoteMapper
 ) {
 
-    fun saveNote(noteRequest: NoteRequest): Unit {
-        noteRepository.save(
-            noteMapper.toNoteEntity(noteRequest)
-        )
-    }
+    fun saveNote(noteRequest: NoteRequest): NoteResponse =
+         noteMapper.toNoteEntity(noteRequest)
+            .let(noteRepository::save)
+            .let(noteMapper::toNoteResponse)
 
-    fun findNoteById(id: String): Note = noteRepository.findById(id).orElseThrow {
-        RuntimeException("Note with id: $id not found")
-    }
+    fun findNoteById(id: String): NoteResponse =
+        noteRepository.findById(id)
+            .orElseThrow { RuntimeException("Note not found") }
+            .let(noteMapper::toNoteResponse)
 
 }
