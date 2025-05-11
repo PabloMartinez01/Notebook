@@ -4,8 +4,10 @@ import com.pablodev.notebook.dto.NoteRequest
 import com.pablodev.notebook.entities.Note
 import com.pablodev.notebook.mappers.NoteMapper
 import com.pablodev.notebook.repositories.NoteRepository
+import org.springframework.stereotype.Service
 import java.util.UUID
 
+@Service
 class NoteService(
     private val noteRepository: NoteRepository,
     private val noteMapper: NoteMapper
