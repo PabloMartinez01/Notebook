@@ -10,6 +10,7 @@ import java.util.*
 class NoteMapper {
 
     fun toNoteEntity(noteRequest: NoteRequest): Note = Note(
+        id = UUID.randomUUID().toString(),
         title = noteRequest.title,
         content = noteRequest.content
     )

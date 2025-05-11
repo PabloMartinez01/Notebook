@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document
 
 @Document(collection = "Notebooks")
 data class Note(
-    @Id val id: String? = null,
+    @Id var id: String? = null,
     val title: String,
     val content: String,
 )
