@@ -18,7 +18,6 @@ class NoteMapper {
     fun toNoteResponse(note: Note): NoteResponse = NoteResponse(
         id = note.id ?: throw IllegalStateException("Cannot convert to NoteResponse: id is null"),
         title = note.title,
-        content = note.content
     )
 
 }
