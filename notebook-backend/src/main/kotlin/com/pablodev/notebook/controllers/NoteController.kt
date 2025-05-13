@@ -1,5 +1,6 @@
 package com.pablodev.notebook.controllers
 
+import com.pablodev.notebook.dto.NoteDetailResponse
 import com.pablodev.notebook.dto.NoteRequest
 import com.pablodev.notebook.dto.NoteResponse
 import com.pablodev.notebook.services.DefaultNoteService
@@ -17,8 +18,10 @@ class NoteController (private val noteService: DefaultNoteService) {
 
 
     @GetMapping("/{id}")
-    fun getNoteById(@PathVariable id: String): ResponseEntity<NoteResponse> =
-        noteService.findNoteById(id)
+    fun getNoteDetailsById(@PathVariable id: String): ResponseEntity<NoteDetailResponse> =
+        noteService.findNoteDetailById(id)
             .let { ResponseEntity.ok(it) }
+
+
 
 }
