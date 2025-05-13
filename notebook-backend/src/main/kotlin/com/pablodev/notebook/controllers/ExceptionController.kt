@@ -2,7 +2,6 @@ package com.pablodev.notebook.controllers
 
 import com.pablodev.notebook.dto.error.ErrorResponse
 import com.pablodev.notebook.exceptions.NoteNotFoundException
-import org.springframework.context.annotation.Bean
 import org.springframework.dao.DataAccessException
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -12,6 +11,13 @@ import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RestControllerAdvice
 import org.springframework.web.servlet.resource.NoResourceFoundException
 
+private const val METHOD_NOT_ALLOWED = "Method not allowed"
+private const val NOTE_NOT_FOUND = "Note not found"
+private const val RESOURCE_NOT_FOUND = "Resource not found"
+private const val MESSAGE_NOT_READABLE = "Error parsing the json body"
+private const val DATA_ACCESS_ERROR = "Error accessing data"
+private const val INTERNAL_SERVER_ERROR = "Internal server error"
+
 @RestControllerAdvice
 class ExceptionController {
 
@@ -20,7 +26,7 @@ class ExceptionController {
         ResponseEntity.badRequest().body(
             ErrorResponse(
                 status = HttpStatus.BAD_REQUEST,
-                message = e.message ?: "Note not found"
+                message = e.message ?: NOTE_NOT_FOUND
             )
         )
 
@@ -29,7 +35,7 @@ class ExceptionController {
         ResponseEntity.status(HttpStatus.NOT_FOUND).body(
             ErrorResponse(
                 status = HttpStatus.NOT_FOUND,
-                message = "Resource not found"
+                message = RESOURCE_NOT_FOUND
             )
         )
 
@@ -38,7 +44,7 @@ class ExceptionController {
         ResponseEntity.status(HttpStatus.METHOD_NOT_ALLOWED).body(
             ErrorResponse(
                 status = HttpStatus.METHOD_NOT_ALLOWED,
-                message = "Method not allowed"
+                message = METHOD_NOT_ALLOWED
             )
         )
 
@@ -47,7 +53,7 @@ class ExceptionController {
         ResponseEntity.badRequest().body(
             ErrorResponse(
                 status = HttpStatus.BAD_REQUEST,
-                message = "Error parsing the json body"
+                message = MESSAGE_NOT_READABLE
             )
         )
 
@@ -56,7 +62,7 @@ class ExceptionController {
         ResponseEntity.internalServerError().body(
             ErrorResponse(
                 status = HttpStatus.INTERNAL_SERVER_ERROR,
-                message = "Error accessing data",
+                message = DATA_ACCESS_ERROR,
             )
         )
 
@@ -65,7 +71,7 @@ class ExceptionController {
         ResponseEntity.internalServerError().body(
             ErrorResponse(
                 status = HttpStatus.INTERNAL_SERVER_ERROR,
-                message = "Internal server error"
+                message = INTERNAL_SERVER_ERROR
             )
         )
 
