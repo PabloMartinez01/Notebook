@@ -8,5 +8,5 @@ import org.springframework.data.mongodb.core.mapping.MongoId
 data class Note(
     val title: String,
     val content: String,
-    @MongoId var id: String? = null,
+    @MongoId val id: String? = null,
 )
