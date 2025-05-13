@@ -2,14 +2,13 @@ package com.pablodev.notebook.controllers
 
 import com.pablodev.notebook.dto.NoteRequest
 import com.pablodev.notebook.dto.NoteResponse
-import com.pablodev.notebook.services.NoteService
-import org.springframework.http.HttpStatus
+import com.pablodev.notebook.services.DefaultNoteService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/notes")
-class NoteController (private val noteService: NoteService) {
+class NoteController (private val noteService: DefaultNoteService) {
 
     @PostMapping
     fun createNote(@RequestBody noteRequest: NoteRequest): ResponseEntity<NoteResponse> =

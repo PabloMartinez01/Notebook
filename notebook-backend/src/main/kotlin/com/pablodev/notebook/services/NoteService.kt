@@ -1,27 +1,13 @@
 package com.pablodev.notebook.services
 
+import com.pablodev.notebook.dto.NoteDetailResponse
 import com.pablodev.notebook.dto.NoteRequest
 import com.pablodev.notebook.dto.NoteResponse
-import com.pablodev.notebook.entities.Note
-import com.pablodev.notebook.mappers.NoteMapper
-import com.pablodev.notebook.repositories.NoteRepository
-import org.springframework.stereotype.Service
-import java.util.UUID
 
-@Service
-class NoteService(
-    private val noteRepository: NoteRepository,
-    private val noteMapper: NoteMapper
-) {
-
-    fun saveNote(noteRequest: NoteRequest): NoteResponse =
-         noteMapper.toNoteEntity(noteRequest)
-            .let(noteRepository::save)
-            .let(noteMapper::toNoteResponse)
-
-    fun findNoteById(id: String): NoteResponse =
-        noteRepository.findById(id)
-            .orElseThrow { RuntimeException("Note not found") }
-            .let(noteMapper::toNoteResponse)
-
+interface NoteService {
+    fun saveNote(noteRequest: NoteRequest): NoteResponse
+    fun findNoteById(id: String): NoteResponse
+    fun findNoteDetailById(id: String): NoteDetailResponse
+    fun findAllNotes(): List<NoteResponse>
+    fun deleteNoteById(id: String): NoteResponse
 }
