@@ -1,4 +1,4 @@
-package com.pablodev.notebook.dto
+package com.pablodev.notebook.dto.note
 
 data class NoteRequest(
     val title: String,

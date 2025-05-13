@@ -1,8 +1,8 @@
 package com.pablodev.notebook.services
 
-import com.pablodev.notebook.dto.NoteDetailResponse
-import com.pablodev.notebook.dto.NoteRequest
-import com.pablodev.notebook.dto.NoteResponse
+import com.pablodev.notebook.dto.note.NoteDetailResponse
+import com.pablodev.notebook.dto.note.NoteRequest
+import com.pablodev.notebook.dto.note.NoteResponse
 
 interface NoteService {
     fun saveNote(noteRequest: NoteRequest): NoteResponse

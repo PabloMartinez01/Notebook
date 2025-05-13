@@ -1,8 +1,8 @@
 package com.pablodev.notebook.controllers
 
-import com.pablodev.notebook.dto.NoteDetailResponse
-import com.pablodev.notebook.dto.NoteRequest
-import com.pablodev.notebook.dto.NoteResponse
+import com.pablodev.notebook.dto.note.NoteDetailResponse
+import com.pablodev.notebook.dto.note.NoteRequest
+import com.pablodev.notebook.dto.note.NoteResponse
 import com.pablodev.notebook.services.DefaultNoteService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
@@ -26,8 +26,4 @@ class NoteController (private val noteService: DefaultNoteService) {
     fun getNoteDetailsById(@PathVariable id: String): ResponseEntity<NoteDetailResponse> =
         noteService.findNoteDetailById(id)
             .let { ResponseEntity.ok(it) }
-
-
-
-
 }

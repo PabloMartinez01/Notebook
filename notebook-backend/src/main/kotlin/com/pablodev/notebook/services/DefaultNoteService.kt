@@ -1,8 +1,8 @@
 package com.pablodev.notebook.services
 
-import com.pablodev.notebook.dto.NoteDetailResponse
-import com.pablodev.notebook.dto.NoteRequest
-import com.pablodev.notebook.dto.NoteResponse
+import com.pablodev.notebook.dto.note.NoteDetailResponse
+import com.pablodev.notebook.dto.note.NoteRequest
+import com.pablodev.notebook.dto.note.NoteResponse
 import com.pablodev.notebook.mappers.NoteMapper
 import com.pablodev.notebook.repositories.NoteRepository
 import org.springframework.stereotype.Service
@@ -28,7 +28,8 @@ class DefaultNoteService (
             .let(noteMapper::toNoteDetailResponse)
 
     override fun findAllNotes(): List<NoteResponse> =
-        noteRepository.findAll().map(noteMapper::toNoteResponse)
+        noteRepository.findAll()
+            .map(noteMapper::toNoteResponse)
 
     override fun deleteNoteById(id: String): Unit =
         noteRepository.deleteById(id)
