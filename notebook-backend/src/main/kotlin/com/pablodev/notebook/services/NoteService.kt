@@ -9,5 +9,5 @@ interface NoteService {
     fun findNoteById(id: String): NoteResponse
     fun findNoteDetailById(id: String): NoteDetailResponse
     fun findAllNotes(): List<NoteResponse>
-    fun deleteNoteById(id: String): NoteResponse
+    fun deleteNoteById(id: String): Unit
 }

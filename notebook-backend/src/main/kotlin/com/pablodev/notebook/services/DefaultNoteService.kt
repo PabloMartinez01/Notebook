@@ -22,16 +22,15 @@ class DefaultNoteService (
             .orElseThrow { RuntimeException("Note not found") }
             .let(noteMapper::toNoteResponse)
 
-    override fun findNoteDetailById(id: String): NoteDetailResponse {
-        TODO("Not yet implemented")
-    }
+    override fun findNoteDetailById(id: String): NoteDetailResponse =
+        noteRepository.findById(id)
+            .orElseThrow { RuntimeException("Note not found") }
+            .let(noteMapper::toNoteDetailResponse)
 
-    override fun findAllNotes(): List<NoteResponse> {
-        TODO("Not yet implemented")
-    }
+    override fun findAllNotes(): List<NoteResponse> =
+        noteRepository.findAll().map(noteMapper::toNoteResponse)
 
-    override fun deleteNoteById(id: String): NoteResponse {
-        TODO("Not yet implemented")
-    }
+    override fun deleteNoteById(id: String): Unit =
+        noteRepository.deleteById(id)
 
 }
