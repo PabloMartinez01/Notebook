@@ -6,6 +6,7 @@ import com.pablodev.notebook.dto.note.NoteResponse
 
 interface NoteService {
     fun saveNote(noteRequest: NoteRequest): NoteResponse
+    fun updateNote(id: String, noteRequest: NoteRequest): NoteResponse
     fun findNoteById(id: String): NoteResponse
     fun findNoteDetailById(id: String): NoteDetailResponse
     fun findAllNotes(): List<NoteResponse>
