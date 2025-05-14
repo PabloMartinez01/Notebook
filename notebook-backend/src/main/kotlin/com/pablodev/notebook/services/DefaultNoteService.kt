@@ -21,10 +21,11 @@ class DefaultNoteService (
             .let(noteMapper::toNoteResponse)
 
     override fun updateNote(id: String, noteRequest: NoteRequest): NoteResponse  {
-        noteRepository.findById(id)
+        val existingNote: Note = noteRepository.findById(id)
             .orElseThrow { NoteNotFoundException("Note with id $id not found") }
 
         return noteMapper.toNoteEntity(noteRequest)
+            .copy(id = existingNote.id)
             .let(noteRepository::save)
             .let(noteMapper::toNoteResponse)
     }
