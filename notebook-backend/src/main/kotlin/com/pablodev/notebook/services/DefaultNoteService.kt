@@ -44,7 +44,10 @@ class DefaultNoteService (
         noteRepository.findAll()
             .map(noteMapper::toNoteResponse)
 
-    override fun deleteNoteById(id: String): Unit =
-        noteRepository.deleteById(id)
+    override fun deleteNoteById(id: String): Unit {
+        val note = noteRepository.findById(id)
+            .orElseThrow { NoteNotFoundException("Note with id $id not found") }
+        noteRepository.delete(note)
+    }
 
 }
