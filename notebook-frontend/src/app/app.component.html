@@ -1,20 +1,27 @@
 
 <div class="grid grid-cols-2 h-screen">
-  <div class="p-4">
-    <textarea class="w-full h-full !focus:outline-none !focus:border-none"
-              pTextarea
-              spellcheck="false"
-              [(ngModel)]="noteMarkdown"></textarea>
+  <div class="h-screen p-4">
+
+    <ngx-monaco-editor
+      class="!h-full"
+      [options]="editorOptions"
+      [(ngModel)]="noteMarkdown">
+
+    </ngx-monaco-editor>
+
   </div>
 
-  <div class="p-4 markdown-body">
+  <div class="p-4 markdown-body overflow-y-auto h-screen">
 
-    <markdown
+    <div
+      markdown
+      class=""
       [data]="noteMarkdown"
-      lineHighlight
       lineNumbers
-      ngPreserveWhitespaces>
-    </markdown>
+      lineHighlight
+      ngPreserveWhitespaces
+      >
+    </div>
 
   </div>
 </div>

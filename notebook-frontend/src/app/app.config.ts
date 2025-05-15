@@ -7,6 +7,14 @@ import {provideAnimationsAsync} from '@angular/platform-browser/animations/async
 import {providePrimeNG} from 'primeng/config';
 import Aura from '@primeng/themes/aura';
 import {definePreset} from '@primeng/themes';
+import {provideMonacoEditor} from 'ngx-monaco-editor-v2';
+
+
+import hljs from 'highlight.js/lib/core';
+
+
+import java from 'highlight.js/lib/languages/java';
+import {provideHighlightOptions} from 'ngx-highlightjs';
 
 const MyPreset = definePreset(Aura, {
   semantic: {
@@ -26,17 +34,34 @@ const MyPreset = definePreset(Aura, {
   }
 });
 
+
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideMarkdown(),
+    provideHighlightOptions({
+      coreLibraryLoader: () => import('highlight.js/lib/core'),
+      lineNumbersLoader: () => import('ngx-highlightjs/line-numbers'),
+      languages: {
+        java: () => import('highlight.js/lib/languages/java'),
+        typescript: () => import('highlight.js/lib/languages/typescript'),
+        css: () => import('highlight.js/lib/languages/css'),
+        xml: () => import('highlight.js/lib/languages/xml')
+      },
+    }),
+    provideMarkdown({
+
+    }),
     provideAnimationsAsync(),
     providePrimeNG({
       theme: {
         preset: MyPreset
       }
-    })
+    }),
+    provideMonacoEditor(),
+
+
 
   ]
 };

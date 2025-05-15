@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import {MarkdownComponent} from 'ngx-markdown';
 import {Textarea} from 'primeng/textarea';
 import {FormsModule} from '@angular/forms';
+import {EditorComponent} from 'ngx-monaco-editor-v2';
 
 @Component({
   selector: 'app-root',
   imports: [
     MarkdownComponent,
-    Textarea,
-    FormsModule
+    FormsModule,
+    EditorComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -32,16 +33,31 @@ This is a short **Markdown** example.
 | John  | 25  |
 | Mary  | 30  |
 
-## JavaScript Code
+## Java Code
 
-\`\`\`js
-function greet(name) {
-  console.log('Hello, ' + name + '!');
+\`\`\`java
+public class Main {
+  public static void main(String[] args) {
+    System.out.println("Hello world!")
+  }
 }
-
-greet('World');
 \`\`\`
 
 End of the note. 🎉
 `;
+
+
+
+  editorOptions = {
+    theme: 'vs-light',
+    language: 'markdown',
+    automaticLayout: true,
+    quickSuggestions: false,
+    scrollBeyondLastLine: false,
+    scrollbar: {
+      verticalScrollbarSize: 6,
+    }
+
+  };
+
 }
