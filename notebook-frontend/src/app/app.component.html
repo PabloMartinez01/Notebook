@@ -1,7 +1,10 @@
 
 <div class="grid grid-cols-2 h-screen">
   <div class="p-4">
-    <textarea class="w-full h-full"  pTextarea [(ngModel)]="noteMarkdown"></textarea>
+    <textarea class="w-full h-full !focus:outline-none !focus:border-none"
+              pTextarea
+              spellcheck="false"
+              [(ngModel)]="noteMarkdown"></textarea>
   </div>
 
   <div class="p-4 markdown-body">
