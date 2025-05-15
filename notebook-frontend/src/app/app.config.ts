@@ -10,12 +10,6 @@ import {definePreset} from '@primeng/themes';
 import {provideMonacoEditor} from 'ngx-monaco-editor-v2';
 
 
-import hljs from 'highlight.js/lib/core';
-
-
-import java from 'highlight.js/lib/languages/java';
-import {provideHighlightOptions} from 'ngx-highlightjs';
-
 const MyPreset = definePreset(Aura, {
   semantic: {
     primary: {
@@ -40,19 +34,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideHighlightOptions({
-      coreLibraryLoader: () => import('highlight.js/lib/core'),
-      lineNumbersLoader: () => import('ngx-highlightjs/line-numbers'),
-      languages: {
-        java: () => import('highlight.js/lib/languages/java'),
-        typescript: () => import('highlight.js/lib/languages/typescript'),
-        css: () => import('highlight.js/lib/languages/css'),
-        xml: () => import('highlight.js/lib/languages/xml')
-      },
-    }),
-    provideMarkdown({
-
-    }),
+    provideMarkdown(),
     provideAnimationsAsync(),
     providePrimeNG({
       theme: {
@@ -60,9 +42,6 @@ export const appConfig: ApplicationConfig = {
       }
     }),
     provideMonacoEditor(),
-
-
-
   ]
 };
 
