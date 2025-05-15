@@ -1,5 +1,6 @@
 package com.pablodev.notebook.controllers
 
+import com.pablodev.notebook.constants.*
 import com.pablodev.notebook.dto.error.ErrorResponse
 import com.pablodev.notebook.exceptions.NoteNotFoundException
 import org.springframework.dao.DataAccessException
@@ -11,12 +12,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.RestControllerAdvice
 import org.springframework.web.servlet.resource.NoResourceFoundException
 
-private const val METHOD_NOT_ALLOWED = "Method not allowed"
-private const val NOTE_NOT_FOUND = "Note not found"
-private const val RESOURCE_NOT_FOUND = "Resource not found"
-private const val MESSAGE_NOT_READABLE = "Error parsing the json body"
-private const val DATA_ACCESS_ERROR = "Error accessing data"
-private const val INTERNAL_SERVER_ERROR = "Internal server error"
 
 @RestControllerAdvice
 class ExceptionController {
