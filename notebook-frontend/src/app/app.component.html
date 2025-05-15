@@ -1,9 +1,19 @@
 
-<div class="markdown-body">
-  <markdown
-    [data]="noteMarkdown"
-    lineHighlight
-    lineNumbers
-    ngPreserveWhitespaces>
-  </markdown>
+<div class="grid grid-cols-2 h-screen">
+  <div class="p-4">
+    <textarea class="w-full h-full"  pTextarea [(ngModel)]="noteMarkdown"></textarea>
+  </div>
+
+  <div class="p-4 markdown-body">
+
+    <markdown
+      [data]="noteMarkdown"
+      lineHighlight
+      lineNumbers
+      ngPreserveWhitespaces>
+    </markdown>
+
+  </div>
 </div>
+
+

@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
 import {MarkdownComponent} from 'ngx-markdown';
+import {Textarea} from 'primeng/textarea';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   imports: [
-    MarkdownComponent
+    MarkdownComponent,
+    Textarea,
+    FormsModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
