@@ -13,22 +13,20 @@ class NoteController (private val noteService: DefaultNoteService) {
 
     @PostMapping
     fun createNote(@RequestBody noteRequest: NoteRequest): ResponseEntity<NoteResponse> =
-        noteService.saveNote(noteRequest)
-            .let { ResponseEntity.ok(it) }
+        ResponseEntity.ok(noteService.saveNote(noteRequest))
 
     @GetMapping
     fun getAllNotes(): ResponseEntity<List<NoteResponse>> =
-        noteService.findAllNotes()
-            .let { ResponseEntity.ok(it) }
+        ResponseEntity.ok(noteService.findAllNotes())
 
     @GetMapping("/{id}")
     fun getNoteDetailsById(@PathVariable id: String): ResponseEntity<NoteDetailResponse> =
-        noteService.findNoteDetailById(id)
-            .let { ResponseEntity.ok(it) }
-
+        ResponseEntity.ok(noteService.findNoteDetailById(id))
 
     @DeleteMapping("/{id}")
-    fun deleteNoteById(@PathVariable id: String): ResponseEntity<Any> =
+    fun deleteNoteById(@PathVariable id: String): ResponseEntity<Any> {
         noteService.deleteNoteById(id)
-            .let { ResponseEntity.noContent().build() }
+        return ResponseEntity.noContent().build()
+    }
+
 }
