@@ -2,10 +2,10 @@
 <p-splitter>
 
   <ng-template #panel>
-    <div class="w-full">
+    <div class="w-full p-2">
       <p-menubar [model]="items" />
       <ngx-monaco-editor
-        class="!h-full"
+        class="!h-full mt-2"
         [options]="editorOptions"
         [(ngModel)]="noteMarkdown">
       </ngx-monaco-editor>
@@ -31,21 +31,6 @@
 </p-splitter>
 
 
-<!--
-
-<div class="h-screen p-4">
-
-    <ngx-monaco-editor
-      class="!h-full"
-      [options]="editorOptions"
-      [(ngModel)]="noteMarkdown">
-    </ngx-monaco-editor>
-
-  </div>
-
-
-
--->
 
 
 
