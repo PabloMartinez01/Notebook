@@ -23,7 +23,6 @@
     "highlight.js": "^11.11.1",
     "marked": "^15.0.11",
     "monaco-editor": "^0.52.2",
-    "ngx-highlightjs": "^14.0.0",
     "ngx-markdown": "^19.1.1",
     "ngx-monaco-editor-v2": "^19.0.2",
     "postcss": "^8.5.3",
