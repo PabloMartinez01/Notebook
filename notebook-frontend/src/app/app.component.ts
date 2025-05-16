@@ -5,8 +5,10 @@ import {FormsModule} from '@angular/forms';
 import {EditorComponent} from 'ngx-monaco-editor-v2';
 import {Splitter} from 'primeng/splitter';
 import {Menubar} from 'primeng/menubar';
-import {MenuItem} from 'primeng/api';
+import {MenuItem, MenuItemCommandEvent} from 'primeng/api';
 import {Sidebar} from 'primeng/sidebar';
+import {Button} from 'primeng/button';
+import {Drawer} from 'primeng/drawer';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +18,9 @@ import {Sidebar} from 'primeng/sidebar';
     EditorComponent,
     Splitter,
     Menubar,
-    Sidebar
+    Sidebar,
+    Button,
+    Drawer
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -118,13 +122,18 @@ End of the note. 🎉
 
   };
   items: MenuItem[] = [{
-    label: 'Home',
-    icon: 'pi pi-home'
-  },
+    label: 'Menu',
+    icon: 'pi pi-bars',
+    command: () => {
+      this.sidebarVisible = true;
+    }
+    },
     {
       label: 'Features',
       icon: 'pi pi-star'
     },]
+
+  sidebarVisible: boolean = false
 
 
 }
