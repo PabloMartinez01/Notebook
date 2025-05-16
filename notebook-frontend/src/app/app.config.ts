@@ -41,8 +41,13 @@ export const appConfig: ApplicationConfig = {
         preset: MyPreset
       }
     }),
-    provideMonacoEditor(),
+    provideMonacoEditor({
+      defaultOptions: {
+        overviewRulerLanes: 0
+      }
+    }) ,
   ]
 };
+
 
 

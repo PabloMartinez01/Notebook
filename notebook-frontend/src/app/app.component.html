@@ -3,6 +3,7 @@
 
   <ng-template #panel>
     <div class="w-full">
+      <p-menubar [model]="items" />
       <ngx-monaco-editor
         class="!h-full"
         [options]="editorOptions"

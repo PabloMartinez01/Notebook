@@ -4,6 +4,8 @@ import {Textarea} from 'primeng/textarea';
 import {FormsModule} from '@angular/forms';
 import {EditorComponent} from 'ngx-monaco-editor-v2';
 import {Splitter} from 'primeng/splitter';
+import {Menubar} from 'primeng/menubar';
+import {MenuItem} from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +13,8 @@ import {Splitter} from 'primeng/splitter';
     MarkdownComponent,
     FormsModule,
     EditorComponent,
-    Splitter
+    Splitter,
+    Menubar
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -61,5 +64,13 @@ End of the note. 🎉
     }
 
   };
+  items: MenuItem[] = [{
+    label: 'Home',
+    icon: 'pi pi-home'
+  },
+    {
+      label: 'Features',
+      icon: 'pi pi-star'
+    },]
 
 }
