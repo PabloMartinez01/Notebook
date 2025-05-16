@@ -1,37 +1,50 @@
 
-<p-splitter>
+<div class="h-screen flex flex-col">
+  <p-menubar [model]="items"/>
 
-  <ng-template #panel>
-    <div class="w-full p-2">
-      <p-menubar [model]="items" />
-      <ngx-monaco-editor
-        class="!h-full mt-2"
-        [options]="editorOptions"
-        [(ngModel)]="noteMarkdown">
-      </ngx-monaco-editor>
+  <div class="overflow-hidden">
+
+    <p-splitter [panelSizes]="[50, 50]" styleClass="max-h-full h-full  ">
+      <ng-template #panel >
+        <div class="flex items-center justify-center h-full w-full">
+          <ngx-monaco-editor
+            class="!h-full !w-full"
+            [options]="editorOptions"
+            [(ngModel)]="noteMarkdown">
+          </ngx-monaco-editor>
+        </div>
+
+      </ng-template>
+      <ng-template #panel class="">
+
+        <div class="overflow-y-auto w-full p-5">
+          <div markdown [data]="noteMarkdown" class="markdown-body">
+
+          </div>
+        </div>
+
+      </ng-template>
+    </p-splitter>
+
     </div>
-  </ng-template>
 
-  <ng-template #panel>
-    <div class="markdown-body overflow-y-auto h-screen w-full p-5">
-      <div
-        markdown
-        class=""
-        [data]="noteMarkdown"
-        lineNumbers
-        lineHighlight
-        ngPreserveWhitespaces
-      >
-      </div>
-    </div>
-  </ng-template>
+</div>
 
 
+<!--
+<ngx-monaco-editor
+                class="!h-full !w-full"
+                [options]="editorOptions"
+                [(ngModel)]="noteMarkdown">
+              </ngx-monaco-editor>
 
-</p-splitter>
 
+              <div class="overflow-y-auto w-full p-5">
+                <div markdown [data]="noteMarkdown" class="markdown-body">
 
-
+                </div>
+              </div>
+-->
 
 
 

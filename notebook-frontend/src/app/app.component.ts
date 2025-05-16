@@ -6,6 +6,7 @@ import {EditorComponent} from 'ngx-monaco-editor-v2';
 import {Splitter} from 'primeng/splitter';
 import {Menubar} from 'primeng/menubar';
 import {MenuItem} from 'primeng/api';
+import {Sidebar} from 'primeng/sidebar';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ import {MenuItem} from 'primeng/api';
     FormsModule,
     EditorComponent,
     Splitter,
-    Menubar
+    Menubar,
+    Sidebar
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -49,6 +51,57 @@ public class Main {
 \`\`\`
 
 End of the note. 🎉
+
+## List
+
+- First item
+- Second item
+- **Important** item
+
+## Table
+
+| Name  | Age |
+|-------|-----|
+| John  | 25  |
+| Mary  | 30  |
+
+## Java Code
+
+
+## List
+
+- First item
+- Second item
+- **Important** item
+
+## Table
+
+| Name  | Age |
+|-------|-----|
+| John  | 25  |
+| Mary  | 30  |
+
+## Java Code
+
+## Table
+
+| Name  | Age |
+|-------|-----|
+| John  | 25  |
+| Mary  | 30  |
+
+## Java Code
+
+## Table
+
+| Name  | Age |
+|-------|-----|
+| John  | 25  |
+| Mary  | 30  |
+
+## Java Code
+
+
 `;
 
 
@@ -72,5 +125,6 @@ End of the note. 🎉
       label: 'Features',
       icon: 'pi pi-star'
     },]
+
 
 }
