@@ -3,13 +3,15 @@ import {MarkdownComponent} from 'ngx-markdown';
 import {Textarea} from 'primeng/textarea';
 import {FormsModule} from '@angular/forms';
 import {EditorComponent} from 'ngx-monaco-editor-v2';
+import {Splitter} from 'primeng/splitter';
 
 @Component({
   selector: 'app-root',
   imports: [
     MarkdownComponent,
     FormsModule,
-    EditorComponent
+    EditorComponent,
+    Splitter
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

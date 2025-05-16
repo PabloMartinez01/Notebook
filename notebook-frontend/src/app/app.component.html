@@ -1,29 +1,51 @@
 
-<div class="grid grid-cols-2 h-screen">
-  <div class="h-screen p-4">
+<p-splitter>
+
+  <ng-template #panel>
+    <div class="w-full">
+      <ngx-monaco-editor
+        class="!h-full"
+        [options]="editorOptions"
+        [(ngModel)]="noteMarkdown">
+      </ngx-monaco-editor>
+    </div>
+  </ng-template>
+
+  <ng-template #panel>
+    <div class="markdown-body overflow-y-auto h-screen w-full p-5">
+      <div
+        markdown
+        class=""
+        [data]="noteMarkdown"
+        lineNumbers
+        lineHighlight
+        ngPreserveWhitespaces
+      >
+      </div>
+    </div>
+  </ng-template>
+
+
+
+</p-splitter>
+
+
+<!--
+
+<div class="h-screen p-4">
 
     <ngx-monaco-editor
       class="!h-full"
       [options]="editorOptions"
       [(ngModel)]="noteMarkdown">
-
     </ngx-monaco-editor>
 
   </div>
 
-  <div class="p-4 markdown-body overflow-y-auto h-screen">
 
-    <div
-      markdown
-      class=""
-      [data]="noteMarkdown"
-      lineNumbers
-      lineHighlight
-      ngPreserveWhitespaces
-      >
-    </div>
 
-  </div>
-</div>
+-->
+
+
 
 
