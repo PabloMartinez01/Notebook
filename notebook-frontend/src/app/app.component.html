@@ -3,7 +3,7 @@
 
   <sidebar [(sidebarVisible)]="sidebarVisible"></sidebar>
 
-  <p-menubar [model]="items" styleClass="!rounded-none "/>
+  <menubar [(sidebarVisible)]="sidebarVisible"></menubar>
 
   <div class="overflow-hidden h-full mt-3">
 
@@ -12,7 +12,7 @@
         <code-editor class="!h-full w-full" [(noteMarkdown)]="noteMarkdown"></code-editor>
       </ng-template>
       <ng-template #panel>
-        <viewer [noteMarkdown]="noteMarkdown"></viewer>
+        <viewer class="w-full overflow-y-auto" [noteMarkdown]="noteMarkdown"></viewer>
       </ng-template>
     </p-splitter>
 

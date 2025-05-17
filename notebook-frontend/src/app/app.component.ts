@@ -17,6 +17,7 @@ import EditorOption = editor.EditorOption;
 import {SidebarComponent} from './shared/sidebar/sidebar.component';
 import {CodeEditorComponent} from './features/note/components/editor/code-editor.component';
 import {ViewerComponent} from './features/note/components/viewer/viewer.component';
+import {MenubarComponent} from './features/note/components/toolbar/menubar.component';
 
 @Component({
   selector: 'app-root',
@@ -31,7 +32,8 @@ import {ViewerComponent} from './features/note/components/viewer/viewer.componen
     Drawer,
     SidebarComponent,
     CodeEditorComponent,
-    ViewerComponent
+    ViewerComponent,
+    MenubarComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -40,20 +42,5 @@ export class AppComponent {
 
   noteMarkdown: string =  NOTE_MARKDOWN
   sidebarVisible: boolean = false
-
-
-
-  items: MenuItem[] = [
-    {
-      label: 'Menu',
-      icon: 'pi pi-bars',
-      command: () => this.sidebarVisible = true
-    },
-    {
-      label: 'Features',
-      icon: 'pi pi-star'
-    },
-  ]
-
 
 }
