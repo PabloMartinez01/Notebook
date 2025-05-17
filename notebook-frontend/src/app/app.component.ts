@@ -14,6 +14,7 @@ import {editor} from 'monaco-editor';
 import IEditorOptions = editor.IEditorOptions;
 import EditorOptionsType = editor.EditorOptionsType;
 import EditorOption = editor.EditorOption;
+import {SidebarComponent} from './shared/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +26,8 @@ import EditorOption = editor.EditorOption;
     Menubar,
     Sidebar,
     Button,
-    Drawer
+    Drawer,
+    SidebarComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
