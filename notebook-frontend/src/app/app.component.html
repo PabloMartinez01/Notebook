@@ -9,14 +9,7 @@
 
     <p-splitter [panelSizes]="[50, 50]" styleClass="max-h-full h-full">
       <ng-template #panel>
-        <div class="flex items-center justify-center w-full px-1 py-4">
-          <ngx-monaco-editor
-            class="!h-full w-full"
-            [options]="editorOptions"
-            [(ngModel)]="noteMarkdown">
-          </ngx-monaco-editor>
-        </div>
-
+        <code-editor class="!h-full w-full" [(noteMarkdown)]="noteMarkdown"></code-editor>
       </ng-template>
       <ng-template #panel>
 

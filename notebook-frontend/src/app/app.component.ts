@@ -15,6 +15,7 @@ import IEditorOptions = editor.IEditorOptions;
 import EditorOptionsType = editor.EditorOptionsType;
 import EditorOption = editor.EditorOption;
 import {SidebarComponent} from './shared/sidebar/sidebar.component';
+import {CodeEditorComponent} from './features/note/components/editor/code-editor.component';
 
 @Component({
   selector: 'app-root',
@@ -27,7 +28,8 @@ import {SidebarComponent} from './shared/sidebar/sidebar.component';
     Sidebar,
     Button,
     Drawer,
-    SidebarComponent
+    SidebarComponent,
+    CodeEditorComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -37,16 +39,7 @@ export class AppComponent {
   noteMarkdown: string =  NOTE_MARKDOWN
   sidebarVisible: boolean = false
 
-  editorOptions = {
-    theme: 'vs-light',
-    language: 'markdown',
-    automaticLayout: true,
-    quickSuggestions: false,
-    scrollBeyondLastLine: false,
-    scrollbar: {
-      verticalScrollbarSize: 6,
-    }
-  };
+
 
   items: MenuItem[] = [
     {

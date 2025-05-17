@@ -1,0 +1,9 @@
+<div class="flex items-center justify-center h-full w-full px-1 py-4">
+  <ngx-monaco-editor
+    class="!h-full w-full"
+    [options]="editorOptions"
+    [ngModel]="noteMarkdown"
+    (ngModelChange)="onModelChange($event)"
+  >
+  </ngx-monaco-editor>
+</div>
