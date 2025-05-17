@@ -16,6 +16,7 @@ import EditorOptionsType = editor.EditorOptionsType;
 import EditorOption = editor.EditorOption;
 import {SidebarComponent} from './shared/sidebar/sidebar.component';
 import {CodeEditorComponent} from './features/note/components/editor/code-editor.component';
+import {ViewerComponent} from './features/note/components/viewer/viewer.component';
 
 @Component({
   selector: 'app-root',
@@ -29,7 +30,8 @@ import {CodeEditorComponent} from './features/note/components/editor/code-editor
     Button,
     Drawer,
     SidebarComponent,
-    CodeEditorComponent
+    CodeEditorComponent,
+    ViewerComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

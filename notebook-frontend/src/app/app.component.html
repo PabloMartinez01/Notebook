@@ -12,13 +12,7 @@
         <code-editor class="!h-full w-full" [(noteMarkdown)]="noteMarkdown"></code-editor>
       </ng-template>
       <ng-template #panel>
-
-        <div class="overflow-y-auto w-full p-7">
-          <div markdown [data]="noteMarkdown" class="markdown-body">
-
-          </div>
-        </div>
-
+        <viewer [noteMarkdown]="noteMarkdown"></viewer>
       </ng-template>
     </p-splitter>
 
