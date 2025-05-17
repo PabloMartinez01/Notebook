@@ -11,14 +11,14 @@
       <ng-template #panel>
         <div class="flex items-center justify-center w-full px-1 py-4">
           <ngx-monaco-editor
-            class="!h-full !w-full"
+            class="!h-full w-full"
             [options]="editorOptions"
             [(ngModel)]="noteMarkdown">
           </ngx-monaco-editor>
         </div>
 
       </ng-template>
-      <ng-template #panel class="">
+      <ng-template #panel>
 
         <div class="overflow-y-auto w-full p-7">
           <div markdown [data]="noteMarkdown" class="markdown-body">
