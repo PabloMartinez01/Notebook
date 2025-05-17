@@ -10,6 +10,10 @@ import {Sidebar} from 'primeng/sidebar';
 import {Button} from 'primeng/button';
 import {Drawer} from 'primeng/drawer';
 import {NOTE_MARKDOWN} from './core/app.constants';
+import {editor} from 'monaco-editor';
+import IEditorOptions = editor.IEditorOptions;
+import EditorOptionsType = editor.EditorOptionsType;
+import EditorOption = editor.EditorOption;
 
 @Component({
   selector: 'app-root',
@@ -29,7 +33,7 @@ import {NOTE_MARKDOWN} from './core/app.constants';
 export class AppComponent {
 
   noteMarkdown: string =  NOTE_MARKDOWN
-
+  sidebarVisible: boolean = false
 
   editorOptions = {
     theme: 'vs-light',
@@ -40,21 +44,19 @@ export class AppComponent {
     scrollbar: {
       verticalScrollbarSize: 6,
     }
-
   };
-  items: MenuItem[] = [{
-    label: 'Menu',
-    icon: 'pi pi-bars',
-    command: () => {
-      this.sidebarVisible = true;
-    }
+
+  items: MenuItem[] = [
+    {
+      label: 'Menu',
+      icon: 'pi pi-bars',
+      command: () => this.sidebarVisible = true
     },
     {
       label: 'Features',
       icon: 'pi pi-star'
-    },]
-
-  sidebarVisible: boolean = false
+    },
+  ]
 
 
 }
