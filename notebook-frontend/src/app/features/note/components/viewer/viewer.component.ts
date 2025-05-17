@@ -3,8 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-viewer',
   imports: [],
-  templateUrl: './viewer.component.html',
-  styleUrl: './viewer.component.css'
+  templateUrl: './viewer.component.html'
 })
 export class ViewerComponent {
 
