@@ -8,3 +8,11 @@ html, body {
   width: 100%;
   height: 100%;
 }
+
+.markdown-theme-light .markdown-body {
+
+}
+
+.markdown-theme-dark .markdown-body {
+
+}

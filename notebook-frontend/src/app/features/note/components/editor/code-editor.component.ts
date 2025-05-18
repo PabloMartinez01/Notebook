@@ -16,11 +16,15 @@ export class CodeEditorComponent {
   @Output() noteMarkdownChange: EventEmitter<string> = new EventEmitter<string>();
 
   editorOptions = {
-    theme: 'vs-light',
+    theme: 'vs-dark',
     language: 'markdown',
     automaticLayout: true,
     quickSuggestions: false,
     scrollBeyondLastLine: false,
+    padding: {
+      top: 20,
+      bottom: 20
+    },
     scrollbar: {
       verticalScrollbarSize: 6,
     }
