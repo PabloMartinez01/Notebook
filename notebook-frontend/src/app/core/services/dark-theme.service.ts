@@ -24,7 +24,4 @@ export class DarkThemeService {
       this.darkThemeSubject.next(isDark);
     }
 
-    get isDarkMode(): boolean {
-      return this.darkThemeSubject.value;
-    }
 }
