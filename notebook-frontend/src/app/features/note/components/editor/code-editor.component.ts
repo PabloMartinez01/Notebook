@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {EditorComponent} from 'ngx-monaco-editor-v2';
+import {EditorComponent, MonacoEditorModule, NgxMonacoEditorConfig } from 'ngx-monaco-editor-v2';
 import {FormsModule} from '@angular/forms';
 import {DarkThemeService} from '../../../../core/services/dark-theme.service';
 
@@ -38,8 +38,7 @@ export class CodeEditorComponent implements OnInit {
   ngOnInit(): void {
     this.darkThemeService.isDarkTheme$.subscribe({
       next: darkTheme =>  {
-        console.log(darkTheme);
-        this.editorOptions.theme = darkTheme ? 'vs-dark' : 'vs-light';
+        this.editorOptions = {...this.editorOptions, theme: darkTheme ? 'vs-dark' : 'vs-light'}
       },
       error: err => console.log(err)
     })
