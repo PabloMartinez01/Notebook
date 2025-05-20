@@ -37,9 +37,7 @@ export class CodeEditorComponent implements OnInit {
 
   ngOnInit(): void {
     this.darkThemeService.isDarkTheme$.subscribe({
-      next: darkTheme =>  {
-        this.editorOptions = {...this.editorOptions, theme: darkTheme ? 'vs-dark' : 'vs-light'}
-      },
+      next: darkTheme => this.editorOptions = {...this.editorOptions, theme: darkTheme ? 'vs-dark' : 'vs-light'},
       error: err => console.log(err)
     })
   }
