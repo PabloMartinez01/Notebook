@@ -1,6 +1,7 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {EditorComponent} from 'ngx-monaco-editor-v2';
 import {FormsModule} from '@angular/forms';
+import {DarkThemeService} from '../../../../core/services/dark-theme.service';
 
 @Component({
   selector: 'code-editor',
@@ -10,10 +11,14 @@ import {FormsModule} from '@angular/forms';
   ],
   templateUrl: './code-editor.component.html'
 })
-export class CodeEditorComponent {
+export class CodeEditorComponent implements OnInit {
+
 
   @Input() noteMarkdown: string = '';
   @Output() noteMarkdownChange: EventEmitter<string> = new EventEmitter<string>();
+
+  constructor(private darkThemeService: DarkThemeService) {
+  }
 
   editorOptions = {
     theme: 'vs-dark',
@@ -29,6 +34,16 @@ export class CodeEditorComponent {
       verticalScrollbarSize: 6,
     }
   };
+
+  ngOnInit(): void {
+    this.darkThemeService.isDarkTheme$.subscribe({
+      next: darkTheme =>  {
+        console.log(darkTheme);
+        this.editorOptions.theme = darkTheme ? 'vs-dark' : 'vs-light';
+      },
+      error: err => console.log(err)
+    })
+  }
 
   onModelChange(content: string): void {
     this.noteMarkdownChange.emit(content);
