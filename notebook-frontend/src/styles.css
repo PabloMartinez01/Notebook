@@ -10,3 +10,26 @@ html, body {
 }
 
 
+body {
+  background-color: white;
+  color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: white;
+  }
+}
+
+body.light{
+  background-color: white !important;
+  color: black !important;
+}
+
+body.dark {
+  background-color: #121212 !important;
+  color: white !important;
+}
+
+

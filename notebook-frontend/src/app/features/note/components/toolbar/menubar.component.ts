@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Menubar} from 'primeng/menubar';
-import {MenuItem} from 'primeng/api';
+import {MenuItem, MenuItemCommandEvent} from 'primeng/api';
+import {DarkThemeService} from '../../../../core/services/dark-theme.service';
 
 @Component({
   selector: 'menubar',
@@ -13,6 +14,9 @@ export class MenubarComponent {
 
   @Input() sidebarVisible: boolean = false;
   @Output() sidebarVisibleChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  constructor(private darkThemeService: DarkThemeService) {
+  }
 
   items: MenuItem[] = [
     {
@@ -27,6 +31,11 @@ export class MenubarComponent {
       label: 'Features',
       icon: 'pi pi-star'
     },
+    {
+      label: 'Theme',
+      icon: 'pi pi-sun',
+      command: ()  => this.darkThemeService.toggleDarkMode()
+    }
   ]
 
 
