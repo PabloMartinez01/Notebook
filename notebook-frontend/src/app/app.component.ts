@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {Splitter} from 'primeng/splitter';
 import {NOTE_MARKDOWN} from './core/app.constants';
@@ -7,6 +7,9 @@ import {CodeEditorComponent} from './features/note/components/editor/code-editor
 import {ViewerComponent} from './features/note/components/viewer/viewer.component';
 import {MenubarComponent} from './features/note/components/toolbar/menubar.component';
 import {DarkThemeService} from './core/services/dark-theme.service';
+import {ThemeService} from '@primeng/themes';
+import {StyleClass} from 'primeng/styleclass';
+
 
 @Component({
   selector: 'app-root',
@@ -16,7 +19,8 @@ import {DarkThemeService} from './core/services/dark-theme.service';
     SidebarComponent,
     CodeEditorComponent,
     ViewerComponent,
-    MenubarComponent
+    MenubarComponent,
+    StyleClass
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -32,6 +36,10 @@ export class AppComponent implements OnInit {
     this.darkThemeService.isDarkTheme$.subscribe((isDark) => {
       document.body.classList.remove('light', 'dark')
       document.body.classList.add(isDark ? 'dark' : 'light')
+
+
+      if (isDark) document.documentElement.classList.add('app-dark');
+      else document.documentElement.classList.remove('app-dark');
     });
   }
 
