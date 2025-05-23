@@ -18,8 +18,7 @@ import {StyleClass} from 'primeng/styleclass';
     SidebarComponent,
     CodeEditorComponent,
     ViewerComponent,
-    MenubarComponent,
-    StyleClass
+    MenubarComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
