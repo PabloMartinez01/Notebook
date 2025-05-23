@@ -1,5 +1,6 @@
 <div class=" w-full p-4">
-  <div markdown [data]="noteMarkdown"  class="markdown-body p-5" data-theme="light">
-
+  <div markdown [data]="noteMarkdown"
+       class="p-5"
+       [ngClass]="darkMode ? 'markdown-body-dark ' : 'markdown-body'">
   </div>
 </div>
