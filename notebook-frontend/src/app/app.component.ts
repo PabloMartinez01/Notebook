@@ -34,10 +34,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.darkThemeService.isDarkTheme$.subscribe((isDark) => {
-      document.body.classList.remove('light', 'dark')
-      document.body.classList.add(isDark ? 'dark' : 'light')
-
-
       if (isDark) document.documentElement.classList.add('app-dark');
       else document.documentElement.classList.remove('app-dark');
     });

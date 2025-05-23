@@ -22,12 +22,12 @@ body {
   }
 }
 
-body.light{
+body {
   background-color: white !important;
   color: black !important;
 }
 
-body.dark {
+.app-dark body {
   background-color: #121212 !important;
   color: white !important;
 }
