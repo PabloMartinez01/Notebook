@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Menubar} from 'primeng/menubar';
-import {MenuItem, MenuItemCommandEvent} from 'primeng/api';
+import {MenuItem} from 'primeng/api';
 import {DarkThemeService} from '../../../../core/services/dark-theme.service';
 
 @Component({

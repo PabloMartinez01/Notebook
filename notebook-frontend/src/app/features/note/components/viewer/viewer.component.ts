@@ -1,6 +1,5 @@
 import {Component, Input} from '@angular/core';
 import {MarkdownComponent} from 'ngx-markdown';
-import {NOTE_MARKDOWN} from '../../../../core/app.constants';
 
 @Component({
   selector: 'viewer',
