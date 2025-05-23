@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {Splitter} from 'primeng/splitter';
 import {NOTE_MARKDOWN} from './core/app.constants';
-import {SidebarComponent} from './shared/sidebar/sidebar.component';
+import {SidebarComponent} from './features/note/components/sidebar/sidebar.component';
 import {CodeEditorComponent} from './features/note/components/editor/code-editor.component';
 import {ViewerComponent} from './features/note/components/viewer/viewer.component';
 import {MenubarComponent} from './features/note/components/toolbar/menubar.component';
