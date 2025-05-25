@@ -1,6 +1,6 @@
 import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {MarkdownComponent} from 'ngx-markdown';
-import {DarkThemeService} from '../../../../core/services/dark-theme.service';
+import {ThemeService} from '../../../../core/services/theme.service';
 import {NgClass} from '@angular/common';
 
 @Component({
@@ -16,7 +16,7 @@ export class ViewerComponent implements OnInit{
   @Input() noteMarkdown: string = '';
   darkMode: boolean = false;
 
-  constructor(private darkThemeService: DarkThemeService) {
+  constructor(private darkThemeService: ThemeService) {
 
   }
 

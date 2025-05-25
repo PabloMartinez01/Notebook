@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {EditorComponent} from 'ngx-monaco-editor-v2';
 import {FormsModule} from '@angular/forms';
-import {DarkThemeService} from '../../../../core/services/dark-theme.service';
+import {ThemeService} from '../../../../core/services/theme.service';
 
 @Component({
   selector: 'code-editor',
@@ -16,7 +16,7 @@ export class CodeEditorComponent implements OnInit {
   @Input() noteMarkdown: string = '';
   @Output() noteMarkdownChange: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor(private darkThemeService: DarkThemeService) {
+  constructor(private darkThemeService: ThemeService) {
 
   }
 

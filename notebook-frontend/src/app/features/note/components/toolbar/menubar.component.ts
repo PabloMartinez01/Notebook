@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Menubar} from 'primeng/menubar';
 import {MenuItem} from 'primeng/api';
-import {DarkThemeService} from '../../../../core/services/dark-theme.service';
+import {ThemeService} from '../../../../core/services/theme.service';
 
 @Component({
   selector: 'menubar',
@@ -15,7 +15,7 @@ export class MenubarComponent implements OnInit{
   @Input() sidebarVisible: boolean = false;
   @Output() sidebarVisibleChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor(private darkThemeService: DarkThemeService) {
+  constructor(private darkThemeService: ThemeService) {
   }
 
   ngOnInit(): void {

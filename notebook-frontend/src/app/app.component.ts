@@ -6,7 +6,7 @@ import {SidebarComponent} from './features/note/components/sidebar/sidebar.compo
 import {CodeEditorComponent} from './features/note/components/editor/code-editor.component';
 import {ViewerComponent} from './features/note/components/viewer/viewer.component';
 import {MenubarComponent} from './features/note/components/toolbar/menubar.component';
-import {DarkThemeService} from './core/services/dark-theme.service';
+import {ThemeService} from './core/services/theme.service';
 import {StyleClass} from 'primeng/styleclass';
 
 
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
   noteMarkdown: string =  NOTE_MARKDOWN
   sidebarVisible: boolean = false
 
-  constructor(private darkThemeService: DarkThemeService) {}
+  constructor(private darkThemeService: ThemeService) {}
 
   ngOnInit(): void {
     this.darkThemeService.isDarkTheme$.subscribe((isDark) => {
