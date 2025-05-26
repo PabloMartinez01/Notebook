@@ -16,6 +16,7 @@ export class MenubarComponent implements OnInit{
   @Output() sidebarVisibleChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor(private darkThemeService: ThemeService) {
+
   }
 
   ngOnInit(): void {
@@ -52,10 +53,4 @@ export class MenubarComponent implements OnInit{
       }
     }
   ]
-
-
-
-
-
-
 }

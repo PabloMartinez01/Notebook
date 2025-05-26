@@ -22,12 +22,9 @@ export class ThemeService {
 
     private setDarkMode(isDark: boolean) {
       this.darkThemeSubject.next(isDark);
-
     }
 
     toggleDarkMode() {
       this.setDarkMode(!this.darkThemeSubject.value);
     }
-
-
 }

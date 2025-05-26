@@ -46,5 +46,4 @@ export class CodeEditorComponent implements OnInit {
     this.noteMarkdownChange.emit(content);
   }
 
-
 }

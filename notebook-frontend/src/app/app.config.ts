@@ -9,7 +9,6 @@ import Aura from '@primeng/themes/aura';
 import {definePreset} from '@primeng/themes';
 import {provideMonacoEditor} from 'ngx-monaco-editor-v2';
 
-
 const MyPreset = definePreset(Aura, {
   semantic: {
     primary: {
@@ -27,7 +26,6 @@ const MyPreset = definePreset(Aura, {
     }
   }
 });
-
 
 
 export const appConfig: ApplicationConfig = {

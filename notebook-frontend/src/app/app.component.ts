@@ -7,7 +7,6 @@ import {CodeEditorComponent} from './features/note/components/editor/code-editor
 import {ViewerComponent} from './features/note/components/viewer/viewer.component';
 import {MenubarComponent} from './features/note/components/toolbar/menubar.component';
 import {ThemeService} from './core/services/theme.service';
-import {StyleClass} from 'primeng/styleclass';
 
 
 @Component({
