@@ -9,7 +9,6 @@ import {NoteCardComponent} from '../note-card/note-card.component';
     NoteCardComponent
   ],
   templateUrl: './sidebar.component.html',
-  styleUrl: 'sidebar.component.css'
 })
 export class SidebarComponent {
 
