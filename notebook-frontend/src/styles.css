@@ -34,6 +34,11 @@ body {
 .app-dark .note {
   background-color: #383838;
   border-color: #1f2328;
+
+  .date {
+    color: #b9b9b9;
+  }
+
 }
 
 

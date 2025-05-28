@@ -1,11 +1,13 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Drawer} from "primeng/drawer";
+import {NoteCardComponent} from '../note-card/note-card.component';
 
 @Component({
   selector: 'sidebar',
-    imports: [
-        Drawer
-    ],
+  imports: [
+    Drawer,
+    NoteCardComponent
+  ],
   templateUrl: './sidebar.component.html',
   styleUrl: 'sidebar.component.css'
 })

@@ -1,35 +1,8 @@
 <p-drawer [(visible)]="sidebarVisible" (visibleChange)="onVisibleChange($event)" header="Note list"   styleClass="!w-full md:!w-80 lg:!w-[30rem]">
   <h4 class="mb-6">Here you can find all the notes you’ve created. Click on a note to edit or delete it.</h4>
   <div class="flex flex-col gap-3">
-    <div class="border rounded shadow border-gray-100 p-4 flex items-center justify-between note">
-      <div>
-        <div>One note</div>
-        <div class="text-sm text-gray-500">10/06/2025</div>
-      </div>
-      <div class="flex gap-3">
-        <i class="pi pi-file-edit cursor-pointer" style="font-size: 1.15rem"></i>
-        <i class="pi pi-trash text-red-500 cursor-pointer" style="font-size: 1rem"></i>
-      </div>
-    </div>
-    <div  class="border rounded shadow border-gray-100 p-4 flex items-center justify-between">
-      <div>
-        <div>Other note</div>
-        <div class="text-sm text-gray-500">10/06/2025</div>
-      </div>
-      <div class="flex gap-3">
-        <i class="pi pi-file-edit cursor-pointer" style="font-size: 1.15rem"></i>
-        <i class="pi pi-trash text-red-500 cursor-pointer"></i>
-      </div>
-    </div>
-    <div  class="border rounded shadow border-gray-100 p-4 flex items-center justify-between">
-      <div>
-        <div>Another note</div>
-        <div class="text-sm text-gray-500">10/06/2025</div>
-      </div>
-      <div class="flex gap-3">
-        <i class="pi pi-file-edit cursor-pointer" style="font-size: 1.15rem"></i>
-        <i class="pi pi-trash text-red-500 cursor-pointer"></i>
-      </div>
-    </div>
+    <note-card [title]="'One note'" [date]="'30/06/2001'"></note-card>
+    <note-card [title]="'Other note'" [date]="'30/06/2001'"></note-card>
+    <note-card [title]="'Another note'" [date]="'30/06/2001'"></note-card>
   </div>
 </p-drawer>

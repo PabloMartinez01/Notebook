@@ -1,11 +1,15 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
-  selector: 'app-note-card',
+  selector: 'note-card',
   imports: [],
-  templateUrl: './note-card.component.html',
-  styleUrl: './note-card.component.css'
+  templateUrl: './note-card.component.html'
 })
 export class NoteCardComponent {
+
+  @Input() title: string = '';
+  @Input() date: string = '';
+
+
 
 }
