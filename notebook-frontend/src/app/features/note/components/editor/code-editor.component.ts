@@ -2,6 +2,8 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {EditorComponent} from 'ngx-monaco-editor-v2';
 import {FormsModule} from '@angular/forms';
 import {ThemeService} from '../../../../core/services/theme.service';
+import * as monaco from 'monaco-editor';
+import {editor} from 'monaco-editor';
 
 @Component({
   selector: 'code-editor',
@@ -43,6 +45,10 @@ export class CodeEditorComponent implements OnInit {
   }
 
   onModelChange(content: string): void {
+    this.emitMarkdownChange(content);
+  }
+
+  private emitMarkdownChange(content: string): void {
     this.noteMarkdownChange.emit(content);
   }
 
