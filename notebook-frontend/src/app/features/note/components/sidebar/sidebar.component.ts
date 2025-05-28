@@ -6,7 +6,8 @@ import {Drawer} from "primeng/drawer";
     imports: [
         Drawer
     ],
-  templateUrl: './sidebar.component.html'
+  templateUrl: './sidebar.component.html',
+  styleUrl: 'sidebar.component.css'
 })
 export class SidebarComponent {
 
