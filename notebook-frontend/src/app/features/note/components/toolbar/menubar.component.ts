@@ -41,10 +41,6 @@ export class MenubarComponent implements OnInit{
       }
     },
     {
-      label: 'Features',
-      icon: 'pi pi-star'
-    },
-    {
       id: "theme",
       label: 'Theme',
       icon: 'pi pi-sun',

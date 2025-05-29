@@ -1,9 +1,12 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {EditorComponent} from 'ngx-monaco-editor-v2';
+import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {EditorComponent, NgxMonacoEditorConfig} from 'ngx-monaco-editor-v2';
 import {FormsModule} from '@angular/forms';
 import {ThemeService} from '../../../../core/services/theme.service';
 import * as monaco from 'monaco-editor';
 import {editor} from 'monaco-editor';
+import IStandaloneEditorConstructionOptions = editor.IStandaloneEditorConstructionOptions;
+
+
 
 @Component({
   selector: 'code-editor',
@@ -22,8 +25,8 @@ export class CodeEditorComponent implements OnInit {
 
   }
 
-  editorOptions = {
-    theme: 'vs-dark',
+  editorOptions: IStandaloneEditorConstructionOptions = {
+    theme: 'customTheme',
     language: 'markdown',
     automaticLayout: true,
     quickSuggestions: false,
@@ -33,15 +36,26 @@ export class CodeEditorComponent implements OnInit {
       bottom: 20
     },
     scrollbar: {
-      verticalScrollbarSize: 6,
-    }
+      verticalScrollbarSize: 2,
+    },
+    contextmenu: false,
+    fontFamily: 'Fira Code, monospace',
+    fontSize: 15,
+    fontLigatures: true,
+    minimap: {
+      side: "left",
+    },
+
   };
 
   ngOnInit(): void {
+    /*
     this.darkThemeService.isDarkTheme$.subscribe({
-      next: darkTheme => this.editorOptions = {...this.editorOptions, theme: darkTheme ? 'vs-dark' : 'vs-light'},
+      next: darkTheme => this.editorOptions = {...this.editorOptions, theme: darkTheme ? 'my-darker-theme' : 'vs-light'},
       error: err => console.log(err)
     })
+    */
+
   }
 
   onModelChange(content: string): void {
