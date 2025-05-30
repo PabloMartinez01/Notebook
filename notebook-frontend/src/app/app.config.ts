@@ -11,6 +11,7 @@ import {NgxMonacoEditorConfig, provideMonacoEditor} from 'ngx-monaco-editor-v2';
 import * as monaco from 'monaco-editor';
 import {editor} from 'monaco-editor';
 import IStandaloneThemeData = editor.IStandaloneThemeData;
+import IStandaloneEditorConstructionOptions = editor.IStandaloneEditorConstructionOptions;
 
 const MyPreset = definePreset(Aura, {
   semantic: {
@@ -30,28 +31,45 @@ const MyPreset = definePreset(Aura, {
   }
 });
 
-export const customTheme: IStandaloneThemeData = {
-  base: 'vs',
+export const customDarkTheme: IStandaloneThemeData = {
+  base: 'vs-dark',
   inherit: false,
   rules: [
-    { token: '', foreground: '2A2C2D' },
-    { token: 'string.key.json', foreground: '7b3814' },
-    { token: 'string.value.json', foreground: '0F6980', fontStyle: 'bold' }
+    { token: '', foreground: 'D1D5DA' }, // Texto por defecto (gris claro)
+    { token: 'string.key.json', foreground: '79B8FF' }, // Claves JSON (azul claro)
+    { token: 'string.value.json', foreground: '9ECBFF' }, // Valores JSON (azul hielo)
+    { token: 'number', foreground: 'B392F0' }, // Números (lila suave)
+    { token: 'keyword', foreground: '58A6FF' }, // Palabras clave (azul claro)
+    { token: 'comment', foreground: '6A737D', fontStyle: 'italic' }, // Comentarios (gris suave)
+    { token: 'variable', foreground: 'D1D5DA' },
+    { token: 'type', foreground: '56D4DD' }, // Tipos (turquesa claro)
+    { token: 'function', foreground: 'FFD700' }, // Funciones (amarillo suave)
   ],
   colors: {
-    'editor.background': '#fdfbff',
-    'editor.lineHighlightBackground': '#E8E8E8',
-    'editorCursor.foreground': '#0F6980',
-    'editor.selectionBackground': '#D1E8F5',
-    'editor.inactiveSelectionBackground': '#E5EEF5',
+    'editor.background': '#0D1117', // Muy oscuro con tinte azul
+    'editor.foreground': '#D1D5DA',
+    'editor.lineHighlightBackground': '#161B22',
+    'editorCursor.foreground': '#58A6FF',
+    'editor.selectionBackground': '#264F78',
+    'editor.inactiveSelectionBackground': '#3A3D41',
+    'editorLineNumber.foreground': '#444C56',
+    'editorLineNumber.activeForeground': '#8B949E',
+    'editorIndentGuide.background': '#2C313A',
+    'editorIndentGuide.activeBackground': '#3B4451',
   }
 };
 
+
+const defaultOptions: IStandaloneEditorConstructionOptions = {
+  lineNumbers: "off"
+}
+
 // create a config and define the theme
 const monacoConfig: NgxMonacoEditorConfig = {
+  defaultOptions,
   onMonacoLoad: () => {
     const monacoInstance = (window as any).monaco as typeof monaco;
-    monacoInstance.editor.defineTheme('customTheme', customTheme);
+    monacoInstance.editor.defineTheme('customTheme', customDarkTheme);
   }
 };
 
