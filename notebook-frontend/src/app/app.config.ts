@@ -93,7 +93,25 @@ export const customLightTheme: IStandaloneThemeData = {
 
 
 const defaultOptions: IStandaloneEditorConstructionOptions = {
-  lineNumbers: "off"
+  lineNumbers: "off",
+  language: 'markdown',
+  automaticLayout: true,
+  quickSuggestions: false,
+  scrollBeyondLastLine: false,
+  padding: {
+    top: 20,
+    bottom: 20
+  },
+  scrollbar: {
+    verticalScrollbarSize: 2,
+  },
+  contextmenu: false,
+  fontFamily: 'Fira Code, monospace',
+  fontSize: 15,
+  fontLigatures: true,
+  minimap: {
+    side: "left",
+  },
 }
 
 // create a config and define the theme
