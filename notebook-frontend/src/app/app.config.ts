@@ -89,37 +89,11 @@ export const customLightTheme: IStandaloneThemeData = {
 
 
 
-
-
-
-const defaultOptions: IStandaloneEditorConstructionOptions = {
-  lineNumbers: "off",
-  language: 'markdown',
-  automaticLayout: true,
-  quickSuggestions: false,
-  scrollBeyondLastLine: false,
-  padding: {
-    top: 20,
-    bottom: 20
-  },
-  scrollbar: {
-    verticalScrollbarSize: 2,
-  },
-  contextmenu: false,
-  fontFamily: 'Fira Code, monospace',
-  fontSize: 15,
-  fontLigatures: true,
-  minimap: {
-    side: "left",
-  },
-}
-
-// create a config and define the theme
 const monacoConfig: NgxMonacoEditorConfig = {
-  defaultOptions,
   onMonacoLoad: () => {
     const monacoInstance = (window as any).monaco as typeof monaco;
-    monacoInstance.editor.defineTheme('customTheme', customLightTheme);
+    monacoInstance.editor.defineTheme('customLightTheme', customLightTheme);
+    monacoInstance.editor.defineTheme('customDarkTheme', customDarkTheme)
   }
 };
 

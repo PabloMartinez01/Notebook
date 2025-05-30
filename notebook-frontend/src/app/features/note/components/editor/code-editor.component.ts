@@ -26,18 +26,34 @@ export class CodeEditorComponent implements OnInit {
   }
 
   editorOptions: IStandaloneEditorConstructionOptions = {
-    theme: 'customTheme',
-
-
+    lineNumbers: "off",
+    language: 'markdown',
+    automaticLayout: true,
+    quickSuggestions: false,
+    scrollBeyondLastLine: false,
+    padding: {
+      top: 20,
+      bottom: 20
+    },
+    scrollbar: {
+      verticalScrollbarSize: 2,
+    },
+    contextmenu: false,
+    fontFamily: 'Fira Code, monospace',
+    fontSize: 15,
+    fontLigatures: true,
+    minimap: {
+      side: "left",
+    },
   };
 
   ngOnInit(): void {
-    /*
     this.darkThemeService.isDarkTheme$.subscribe({
-      next: darkTheme => this.editorOptions = {...this.editorOptions, theme: darkTheme ? 'my-darker-theme' : 'vs-light'},
+      next: darkTheme => {
+        this.editorOptions = {...this.editorOptions, theme: darkTheme ? 'customDarkTheme' : 'customLightTheme'}
+      },
       error: err => console.log(err)
     })
-    */
 
   }
 
