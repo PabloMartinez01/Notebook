@@ -3,13 +3,17 @@
 @import "primeicons/primeicons.css";
 
 :root {
-  --navbar: #ffffff;
-  --navbar-hover: #f6f6f6;
+  --navbar-color: #ffffff;
+  --navbar-hover-color: #f6f6f6;
+  --background-color: #ffffff;
+  --text-color: #000000;
 }
 
 .app-dark {
-  --navbar: #070710;
-  --navbar-hover: #0d0d18;
+  --navbar-color: #070710;
+  --navbar-hover-color: #0d0d18;
+  --background-color: #1c1c1c;
+  --text-color: #ffffff;
 }
 
 html, body {
@@ -20,25 +24,8 @@ html, body {
 }
 
 body {
-  background-color: white;
-  color: black;
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #121212;
-    color: white;
-  }
-}
-
-body {
-  background-color: white !important;
-  color: black !important;
-}
-
-.app-dark body {
-  background-color: #121212 !important;
-  color: white !important;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .app-dark .note {
