@@ -31,13 +31,21 @@ export class MenubarComponent implements OnInit{
     })
   }
 
+  onClickMenu(): void {
+    this.sidebarVisible = true;
+    this.sidebarVisibleChange.emit(true);
+  }
+
+  onChangeTheme(): void {
+    this.darkThemeService.toggleDarkMode()
+  }
+
   items: MenuItem[] = [
     {
       label: 'Menu',
       icon: 'pi pi-bars',
       command: () => {
-        this.sidebarVisible = true;
-        this.sidebarVisibleChange.emit(true);
+
       }
     },
     {
@@ -45,7 +53,7 @@ export class MenubarComponent implements OnInit{
       label: 'Theme',
       icon: 'pi pi-sun',
       command: ()  => {
-        this.darkThemeService.toggleDarkMode()
+
       }
     }
   ]

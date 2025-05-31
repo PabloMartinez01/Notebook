@@ -19,7 +19,6 @@ const monacoConfig: NgxMonacoEditorConfig = {
   }
 };
 
-
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),

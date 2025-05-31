@@ -1,1 +1,20 @@
-<p-menubar [model]="items" styleClass="!rounded-none shadow"/>
+<style>
+  nav {
+    background-color: #070710;
+  }
+</style>
+
+<nav class="flex gap-2 items-center px-4 py-2">
+  <div class="flex gap-2 items-center hover:bg-gray-900 py-2 px-3 rounded cursor-pointer"
+       (click)="onClickMenu()"
+  >
+    <i class="pi pi-bars"></i>
+    <span>Menu</span>
+  </div>
+  <div class="flex gap-2 items-center hover:bg-gray-900 py-2 px-3 rounded cursor-pointer"
+       (click)="onChangeTheme()"
+  >
+    <i class="pi pi-sun"></i>
+    <span>Switch theme</span>
+  </div>
+</nav>
