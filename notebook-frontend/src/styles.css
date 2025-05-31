@@ -2,6 +2,16 @@
 @import "tailwindcss";
 @import "primeicons/primeicons.css";
 
+:root {
+  --navbar: #ffffff;
+  --navbar-hover: #f6f6f6;
+}
+
+.app-dark {
+  --navbar: #070710;
+  --navbar-hover: #0d0d18;
+}
+
 html, body {
   padding: 0;
   margin: 0;
@@ -38,7 +48,6 @@ body {
   .date {
     color: #838383;
   }
-
 }
 
 
