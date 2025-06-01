@@ -6,7 +6,7 @@ import {ThemeService} from '../../../../core/services/theme.service';
 @Component({
   selector: 'menubar',
   imports: [
-    Menubar
+
   ],
   templateUrl: './menubar.component.html'
 })
