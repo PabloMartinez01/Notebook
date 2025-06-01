@@ -13,6 +13,8 @@ class MongoDataInitializer(val noteRepository: NoteRepository): CommandLineRunne
 
     override fun run(vararg args: String?) {
 
+        noteRepository.deleteAll();
+
         val notes: List<Note> = listOf(
             Note("Note 1", "This is the first note", UUID.randomUUID().toString()),
             Note("Note 2", "This is the second note", UUID.randomUUID().toString()),
