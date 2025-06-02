@@ -6,7 +6,7 @@ import {NoteResponse} from '../models/note.model';
 @Injectable({
   providedIn: 'root'
 })
-export class NoteServiceService {
+export class NoteService {
 
   constructor(private httpClient: HttpClient) {
 
