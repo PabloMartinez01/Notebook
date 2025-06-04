@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Drawer} from "primeng/drawer";
 import {NoteCardComponent} from '../note-card/note-card.component';
 import {NoteService} from '../../../../core/services/note.service';
@@ -16,8 +16,6 @@ export class SidebarComponent {
   @Input() sidebarVisible: boolean = false;
   @Output() sidebarVisibleChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor(private noteService: NoteService) {
-  }
 
   onVisibleChange(visible: boolean): void {
     this.sidebarVisibleChange.emit(visible);
