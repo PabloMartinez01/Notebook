@@ -9,6 +9,7 @@ import {NgxMonacoEditorConfig, provideMonacoEditor} from 'ngx-monaco-editor-v2';
 import * as monaco from 'monaco-editor';
 import {customDarkTheme, customLightTheme} from './core/configuration/monaco-themes';
 import {applicationPreset} from './core/configuration/primeng-preset';
+import {provideHttpClient} from '@angular/common/http';
 
 
 const monacoConfig: NgxMonacoEditorConfig = {
@@ -23,6 +24,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
+    provideHttpClient(),
     provideMarkdown(),
     provideAnimationsAsync(),
     providePrimeNG({

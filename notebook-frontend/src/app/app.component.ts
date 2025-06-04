@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
     });
 
     this.noteService.findAllNotes().subscribe({
-      next: notes => this.notes = notes,
+      next: notes => {this.notes = notes ; console.log(this.notes)},
       error: err => console.log(err)
     })
 
