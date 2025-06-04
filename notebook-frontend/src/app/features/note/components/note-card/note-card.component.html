@@ -1,7 +1,7 @@
 <div class="border rounded shadow border-gray-100 p-4 flex items-center justify-between note">
   <div>
     <div>{{title}}</div>
-    <div class="text-sm text-gray-500 date">{{date}}</div>
+    <div class="text-sm text-gray-500 date">{{date | date: 'yyyy-MM-dd HH:mm'}}</div>
   </div>
   <div class="flex gap-3">
     <i class="pi pi-file-edit cursor-pointer" style="font-size: 1.15rem"></i>
