@@ -7,6 +7,8 @@ import {CodeEditorComponent} from './features/note/components/editor/code-editor
 import {ViewerComponent} from './features/note/components/viewer/viewer.component';
 import {MenubarComponent} from './features/note/components/toolbar/menubar.component';
 import {ThemeService} from './core/services/theme.service';
+import {NoteService} from './core/services/note.service';
+import {NoteResponse} from './core/models/note-response.model';
 
 
 @Component({
@@ -27,13 +29,26 @@ export class AppComponent implements OnInit {
   noteMarkdown: string =  NOTE_MARKDOWN
   sidebarVisible: boolean = false
 
-  constructor(private darkThemeService: ThemeService) {}
+  notes: NoteResponse[] = [];
+
+
+  constructor(
+    private darkThemeService: ThemeService,
+    private noteService: NoteService
+  ) {}
 
   ngOnInit(): void {
+
     this.darkThemeService.isDarkTheme$.subscribe((isDark) => {
       if (isDark) document.documentElement.classList.add('app-dark');
       else document.documentElement.classList.remove('app-dark');
     });
+
+    this.noteService.findAllNotes().subscribe({
+      next: notes => this.notes = notes,
+      error: err => console.log(err)
+    })
+
   }
 
 }
