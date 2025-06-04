@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.CommandLineRunner
 import org.springframework.stereotype.Component
+import java.time.LocalDateTime
 import java.util.UUID
 
 @Component
@@ -16,9 +17,24 @@ class MongoDataInitializer(val noteRepository: NoteRepository): CommandLineRunne
         noteRepository.deleteAll();
 
         val notes: List<Note> = listOf(
-            Note("Note 1", "This is the first note", UUID.randomUUID().toString()),
-            Note("Note 2", "This is the second note", UUID.randomUUID().toString()),
-            Note("Note 3", "This is the third note", UUID.randomUUID().toString())
+            Note(
+                id = UUID.randomUUID().toString(),
+                title = "Note 1",
+                content = "This is the first note",
+                date = LocalDateTime.now()
+            ),
+            Note(
+                id = UUID.randomUUID().toString(),
+                title = "Note 2",
+                content = "This is the second note",
+                date = LocalDateTime.now()
+            ),
+            Note(
+                id = UUID.randomUUID().toString(),
+                title = "Note 3",
+                content = "This is the third note",
+                date = LocalDateTime.now()
+            )
         )
 
         noteRepository.saveAll(notes)

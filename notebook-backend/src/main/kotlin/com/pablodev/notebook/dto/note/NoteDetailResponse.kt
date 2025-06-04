@@ -1,7 +1,10 @@
 package com.pablodev.notebook.dto.note
 
+import java.time.LocalDateTime
+
 data class NoteDetailResponse(
     val id: String,
     val title: String,
-    val content: String
+    val content: String,
+    val date: LocalDateTime
 )
