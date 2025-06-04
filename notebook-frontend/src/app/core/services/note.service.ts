@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {NoteResponse} from '../models/note-response.model';
+import {Note} from '../models/note.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,8 @@ export class NoteService {
 
   }
 
-  findAllNotes(): Observable<NoteResponse[]> {
-    return this.httpClient.get<NoteResponse[]>("http://localhost:8080/notes")
+  findAllNotes(): Observable<Note[]> {
+    return this.httpClient.get<Note[]>("http://localhost:8080/notes")
   }
 
 

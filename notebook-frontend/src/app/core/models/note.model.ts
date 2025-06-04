@@ -1,4 +1,4 @@
-export interface NoteResponse {
+export interface Note {
     id: string;
     title: string;
 }

@@ -8,7 +8,7 @@ import {ViewerComponent} from './features/note/components/viewer/viewer.componen
 import {MenubarComponent} from './features/note/components/toolbar/menubar.component';
 import {ThemeService} from './core/services/theme.service';
 import {NoteService} from './core/services/note.service';
-import {NoteResponse} from './core/models/note-response.model';
+import {Note} from './core/models/note.model';
 
 
 @Component({
@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
   noteMarkdown: string =  NOTE_MARKDOWN
   sidebarVisible: boolean = false
 
-  notes: NoteResponse[] = [];
+  notes: Note[] = [];
 
 
   constructor(
