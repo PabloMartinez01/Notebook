@@ -9,6 +9,7 @@ import {MenubarComponent} from './features/note/components/toolbar/menubar.compo
 import {ThemeService} from './core/services/theme.service';
 import {NoteService} from './core/services/note.service';
 import {Note} from './core/models/note.model';
+import {RouterOutlet} from '@angular/router';
 
 
 @Component({
@@ -19,36 +20,12 @@ import {Note} from './core/models/note.model';
     SidebarComponent,
     CodeEditorComponent,
     ViewerComponent,
-    MenubarComponent
+    MenubarComponent,
+    RouterOutlet
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
-
-  noteMarkdown: string =  NOTE_MARKDOWN
-  sidebarVisible: boolean = false
-
-  notes: Note[] = [];
-
-
-  constructor(
-    private darkThemeService: ThemeService,
-    private noteService: NoteService
-  ) {}
-
-  ngOnInit(): void {
-
-    this.darkThemeService.isDarkTheme$.subscribe((isDark) => {
-      if (isDark) document.documentElement.classList.add('app-dark');
-      else document.documentElement.classList.remove('app-dark');
-    });
-
-    this.noteService.findAllNotes().subscribe({
-      next: notes => {this.notes = notes ; console.log(this.notes)},
-      error: err => console.log(err)
-    })
-
-  }
+export class AppComponent {
 
 }

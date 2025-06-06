@@ -1,21 +1,2 @@
-
-<div class="h-screen flex flex-col ">
-
-  <sidebar [notes]="notes" [(sidebarVisible)]="sidebarVisible"></sidebar>
-  <menubar  [(sidebarVisible)]="sidebarVisible"></menubar>
-
-  <div class="overflow-hidden h-full">
-
-    <p-splitter [panelSizes]="[50, 50]" styleClass="max-h-full h-full">
-      <ng-template #panel>
-        <code-editor class="!h-full w-full" [(noteMarkdown)]="noteMarkdown"></code-editor>
-      </ng-template>
-      <ng-template #panel>
-        <viewer class="w-full overflow-y-auto" [noteMarkdown]="noteMarkdown"></viewer>
-      </ng-template>
-    </p-splitter>
-
-    </div>
-
-</div>
+<router-outlet></router-outlet>
 
