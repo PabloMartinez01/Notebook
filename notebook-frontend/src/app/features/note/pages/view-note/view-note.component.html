@@ -1,5 +1,4 @@
-<div class="overflow-hidden h-full">
-
+<div class="h-full">
   <p-splitter [panelSizes]="[50, 50]" styleClass="max-h-full h-full">
     <ng-template #panel>
       <code-editor class="!h-full w-full" [(noteMarkdown)]="noteMarkdown"></code-editor>
@@ -8,5 +7,4 @@
       <viewer class="w-full overflow-y-auto" [noteMarkdown]="noteMarkdown"></viewer>
     </ng-template>
   </p-splitter>
-
 </div>
