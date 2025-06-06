@@ -26,6 +26,30 @@ import {RouterOutlet} from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
+
+  sidebarVisible: boolean = false
+
+  notes: Note[] = [];
+
+
+  constructor(
+    private darkThemeService: ThemeService,
+    private noteService: NoteService
+  ) {}
+
+  ngOnInit(): void {
+
+    this.darkThemeService.isDarkTheme$.subscribe((isDark) => {
+      if (isDark) document.documentElement.classList.add('app-dark');
+      else document.documentElement.classList.remove('app-dark');
+    });
+
+    this.noteService.findAllNotes().subscribe({
+      next: notes => {this.notes = notes ; console.log(this.notes)},
+      error: err => console.log(err)
+    })
+
+  }
 
 }

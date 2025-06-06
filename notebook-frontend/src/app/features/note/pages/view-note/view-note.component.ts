@@ -20,31 +20,7 @@ import {NoteService} from '../../../../core/services/note.service';
   ],
   templateUrl: './view-note.component.html'
 })
-export class ViewNoteComponent implements OnInit {
-
+export class ViewNoteComponent  {
   noteMarkdown: string =  NOTE_MARKDOWN
-  sidebarVisible: boolean = false
-
-  notes: Note[] = [];
-
-
-  constructor(
-    private darkThemeService: ThemeService,
-    private noteService: NoteService
-  ) {}
-
-  ngOnInit(): void {
-
-    this.darkThemeService.isDarkTheme$.subscribe((isDark) => {
-      if (isDark) document.documentElement.classList.add('app-dark');
-      else document.documentElement.classList.remove('app-dark');
-    });
-
-    this.noteService.findAllNotes().subscribe({
-      next: notes => {this.notes = notes ; console.log(this.notes)},
-      error: err => console.log(err)
-    })
-
-  }
 
 }
