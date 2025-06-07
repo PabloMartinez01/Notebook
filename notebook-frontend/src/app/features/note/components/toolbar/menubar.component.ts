@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Menubar} from 'primeng/menubar';
 import {MenuItem} from 'primeng/api';
 import {ThemeService} from '../../../../core/services/theme.service';
+import {SidebarService} from '../../../../core/services/sidebar.service';
 
 @Component({
   selector: 'menubar',
@@ -12,10 +13,7 @@ import {ThemeService} from '../../../../core/services/theme.service';
 })
 export class MenubarComponent implements OnInit{
 
-  @Input() sidebarVisible: boolean = false;
-  @Output() sidebarVisibleChange: EventEmitter<boolean> = new EventEmitter<boolean>();
-
-  constructor(private darkThemeService: ThemeService) {
+  constructor(private darkThemeService: ThemeService, private sidebarService: SidebarService) {
 
   }
 
@@ -32,8 +30,7 @@ export class MenubarComponent implements OnInit{
   }
 
   onClickMenu(): void {
-    this.sidebarVisible = true;
-    this.sidebarVisibleChange.emit(true);
+    this.sidebarService.open();
   }
 
   onChangeTheme(): void {

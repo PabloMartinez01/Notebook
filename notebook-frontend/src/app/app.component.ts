@@ -10,6 +10,7 @@ import {ThemeService} from './core/services/theme.service';
 import {NoteService} from './core/services/note.service';
 import {Note} from './core/models/note.model';
 import {RouterOutlet} from '@angular/router';
+import {SidebarService} from './core/services/sidebar.service';
 
 
 @Component({
@@ -28,7 +29,6 @@ import {RouterOutlet} from '@angular/router';
 })
 export class AppComponent implements OnInit{
 
-  sidebarVisible: boolean = false
 
   notes: Note[] = [];
 
@@ -37,6 +37,7 @@ export class AppComponent implements OnInit{
     private darkThemeService: ThemeService,
     private noteService: NoteService
   ) {}
+
 
   ngOnInit(): void {
 
