@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
 @import "primeicons/primeicons.css";
+@custom-variant dark (&:where(.dark, .dark *));
+
 
 :root {
   --bg-color: #f8f8f8;
@@ -11,7 +13,7 @@
   --modal-bg-color: #ffffff;
 }
 
-.app-dark {
+.dark {
   --bg-color: #1c1c1c;
   --bg-secondary-color: #17171a;
   --bg-secondary-hover-color: #232325;
