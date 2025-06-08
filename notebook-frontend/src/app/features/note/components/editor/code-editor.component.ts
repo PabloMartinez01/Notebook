@@ -1,11 +1,9 @@
-import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {EditorComponent, NgxMonacoEditorConfig} from 'ngx-monaco-editor-v2';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {EditorComponent} from 'ngx-monaco-editor-v2';
 import {FormsModule} from '@angular/forms';
 import {ThemeService} from '../../../../core/services/theme.service';
-import * as monaco from 'monaco-editor';
 import {editor} from 'monaco-editor';
 import IStandaloneEditorConstructionOptions = editor.IStandaloneEditorConstructionOptions;
-
 
 
 @Component({
