@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
+import * as monaco from 'monaco-editor';
+import {editor} from 'monaco-editor';
+
+
 
 @Component({
   selector: 'app-toolbar',
@@ -8,4 +12,9 @@ import { Component } from '@angular/core';
 export class ToolbarComponent {
 
 
+  onBoldClick() {
+
+    const monacoInstance = (window as any).monaco as typeof monaco;
+    console.log(monacoInstance.editor.getEditors()[0].getSelection())
+  }
 }
