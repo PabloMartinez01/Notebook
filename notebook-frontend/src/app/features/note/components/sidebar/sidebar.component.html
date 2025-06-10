@@ -9,7 +9,7 @@
 
 
     @for (note of notes; track note.id) {
-      <note-card [title]="note.title" [date]="note.date"></note-card>
+      <note-card [note]="note"></note-card>
     }
 
   </div>

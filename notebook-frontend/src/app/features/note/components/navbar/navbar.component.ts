@@ -9,9 +9,9 @@ import {SidebarService} from '../../../../core/services/sidebar.service';
   imports: [
 
   ],
-  templateUrl: './menubar.component.html'
+  templateUrl: './navbar.component.html'
 })
-export class MenubarComponent implements OnInit{
+export class NavbarComponent implements OnInit{
 
   constructor(private darkThemeService: ThemeService, private sidebarService: SidebarService) {
 

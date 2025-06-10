@@ -2,11 +2,14 @@
 dark:bg-neutral-800 dark:border-none
 ">
   <div>
-    <div>{{title}}</div>
-    <div class="text-sm text-gray-500 date">{{date | date: 'yyyy-MM-dd HH:mm'}}</div>
+    <div>{{note().title}}</div>
+    <div class="text-sm text-gray-500 date">{{note().date | date: 'yyyy-MM-dd HH:mm'}}</div>
   </div>
   <div class="flex gap-3">
-    <i class="pi pi-file-edit cursor-pointer" style="font-size: 1.15rem"></i>
-    <i class="pi pi-trash text-red-500 cursor-pointer" style="font-size: 1rem"></i>
+    <i class="pi pi-file-edit cursor-pointer text-sm"
+       (click)="onEditClick()"
+
+    ></i>
+    <i class="pi pi-trash text-red-500 cursor-pointer"></i>
   </div>
 </div>

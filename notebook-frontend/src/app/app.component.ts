@@ -5,7 +5,7 @@ import {NOTE_MARKDOWN} from './core/app.constants';
 import {SidebarComponent} from './features/note/components/sidebar/sidebar.component';
 import {CodeEditorComponent} from './features/note/components/editor/code-editor.component';
 import {ViewerComponent} from './features/note/components/viewer/viewer.component';
-import {MenubarComponent} from './features/note/components/toolbar/menubar.component';
+import {NavbarComponent} from './features/note/components/navbar/navbar.component';
 import {ThemeService} from './core/services/theme.service';
 import {NoteService} from './core/services/note.service';
 import {Note} from './core/models/note.model';
@@ -21,7 +21,7 @@ import {SidebarService} from './core/services/sidebar.service';
     SidebarComponent,
     CodeEditorComponent,
     ViewerComponent,
-    MenubarComponent,
+    NavbarComponent,
     RouterOutlet
   ],
   templateUrl: './app.component.html',
