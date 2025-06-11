@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, effect, inject, Input, OnInit, Signal} from '@angular/core';
 import {MarkdownComponent} from 'ngx-markdown';
 import {ThemeService} from '../../../../core/services/theme.service';
 import {NgClass} from '@angular/common';
@@ -11,20 +11,14 @@ import {NgClass} from '@angular/common';
   ],
   templateUrl: './viewer.component.html'
 })
-export class ViewerComponent implements OnInit{
+export class ViewerComponent {
+
+  private themeService: ThemeService = inject(ThemeService);
+  darkTheme: Signal<boolean> = this.themeService.darkTheme;
 
   @Input() noteMarkdown: string = '';
-  darkMode: boolean = false;
 
-  constructor(private darkThemeService: ThemeService) {
 
-  }
 
-  ngOnInit(): void {
-    this.darkThemeService.isDarkTheme$.subscribe({
-      next: (darkMode: boolean) => this.darkMode = darkMode,
-      error: err => console.log(err)
-    })
-  }
 
 }

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, computed, effect, EventEmitter, inject, Input, OnInit, Output, Signal} from '@angular/core';
 import {Menubar} from 'primeng/menubar';
 import {MenuItem} from 'primeng/api';
 import {ThemeService} from '../../../../core/services/theme.service';
@@ -11,47 +11,34 @@ import {SidebarService} from '../../../../core/services/sidebar.service';
   ],
   templateUrl: './navbar.component.html'
 })
-export class NavbarComponent implements OnInit{
+export class NavbarComponent {
 
-  constructor(private darkThemeService: ThemeService, private sidebarService: SidebarService) {
+  private themeService: ThemeService = inject(ThemeService);
+  private sidebarService: SidebarService = inject(SidebarService);
 
-  }
-
-  ngOnInit(): void {
-    this.darkThemeService.isDarkTheme$.subscribe({
-      next: (darkMode: boolean) => {
-        const themeItem = this.items.find(item => item.id === 'theme');
-        if (themeItem) {
-          themeItem.label = (darkMode) ? 'Light Theme' : 'Dark Theme';
-          themeItem.icon = (darkMode) ? 'pi pi-sun' : 'pi pi-moon';
-        }
+  items: Signal<MenuItem[]> = computed<MenuItem[]>(() => {
+    const darkTheme: boolean = this.themeService.darkTheme();
+    return [
+      {
+        label: 'Menu',
+        icon: 'pi pi-bars',
+      },
+      {
+        id: "theme",
+        label: (darkTheme) ? 'Light Theme' : 'Dark Theme',
+        icon: (darkTheme) ? 'pi pi-sun' : 'pi pi-moon',
       }
-    })
-  }
+    ]
+  })
+
 
   onClickMenu(): void {
     this.sidebarService.open();
   }
 
   onChangeTheme(): void {
-    this.darkThemeService.toggleDarkMode()
+    this.themeService.toggleDarkMode()
   }
 
-  items: MenuItem[] = [
-    {
-      label: 'Menu',
-      icon: 'pi pi-bars',
-      command: () => {
 
-      }
-    },
-    {
-      id: "theme",
-      label: 'Theme',
-      icon: 'pi pi-sun',
-      command: ()  => {
-
-      }
-    }
-  ]
 }

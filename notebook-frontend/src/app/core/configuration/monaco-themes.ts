@@ -1,5 +1,6 @@
 import {editor} from 'monaco-editor';
 import IStandaloneThemeData = editor.IStandaloneThemeData;
+import IStandaloneEditorConstructionOptions = editor.IStandaloneEditorConstructionOptions;
 
 export const customDarkTheme: IStandaloneThemeData = {
   base: 'vs-dark',
@@ -56,3 +57,25 @@ export const customLightTheme: IStandaloneThemeData = {
     'editorIndentGuide.activeBackground': '#BFC8D9'
   }
 };
+
+export const defaultEditorOptions: IStandaloneEditorConstructionOptions = {
+  lineNumbers: "off",
+    language: 'markdown',
+    automaticLayout: true,
+    quickSuggestions: false,
+    scrollBeyondLastLine: false,
+    padding: {
+    top: 20,
+      bottom: 20
+  },
+  scrollbar: {
+    verticalScrollbarSize: 2,
+  },
+  contextmenu: false,
+    fontFamily: 'Fira Code, monospace',
+    fontSize: 15,
+    fontLigatures: true,
+    minimap: {
+    side: "left",
+  },
+}

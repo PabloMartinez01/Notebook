@@ -1,26 +1,19 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, effect, inject, OnInit} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {Splitter} from 'primeng/splitter';
 import {NOTE_MARKDOWN} from './core/app.constants';
 import {SidebarComponent} from './features/note/components/sidebar/sidebar.component';
-import {CodeEditorComponent} from './features/note/components/editor/code-editor.component';
-import {ViewerComponent} from './features/note/components/viewer/viewer.component';
 import {NavbarComponent} from './features/note/components/navbar/navbar.component';
 import {ThemeService} from './core/services/theme.service';
 import {NoteService} from './core/services/note.service';
 import {Note} from './core/models/note.model';
 import {RouterOutlet} from '@angular/router';
-import {SidebarService} from './core/services/sidebar.service';
 
 
 @Component({
   selector: 'app-root',
   imports: [
     FormsModule,
-    Splitter,
     SidebarComponent,
-    CodeEditorComponent,
-    ViewerComponent,
     NavbarComponent,
     RouterOutlet
   ],
@@ -29,22 +22,25 @@ import {SidebarService} from './core/services/sidebar.service';
 })
 export class AppComponent implements OnInit{
 
+  private darkThemeService: ThemeService = inject(ThemeService);
+  private noteService: NoteService = inject(NoteService)
 
   notes: Note[] = [];
 
+  constructor() {
+    effect(() => {
+      if (this.darkThemeService.darkTheme()) {
+        document.documentElement.classList.add('dark')
+      }
+      else {
+        document.documentElement.classList.remove('dark')
+      }
 
-  constructor(
-    private darkThemeService: ThemeService,
-    private noteService: NoteService
-  ) {}
+    })
+  }
 
 
   ngOnInit(): void {
-
-    this.darkThemeService.isDarkTheme$.subscribe((isDark) => {
-      if (isDark) document.documentElement.classList.add('dark');
-      else document.documentElement.classList.remove('dark');
-    });
 
     this.noteService.findAllNotes().subscribe({
       next: notes => {this.notes = notes ; console.log(this.notes)},

@@ -1,14 +1,13 @@
-import {Component, inject, input, Input, InputSignal} from '@angular/core';
+import {Component, inject, input, InputSignal} from '@angular/core';
 import {DatePipe} from '@angular/common';
 import {Note} from '../../../../core/models/note.model';
-import {Router, RouterLink} from '@angular/router';
+import {Router} from '@angular/router';
 import {SidebarService} from '../../../../core/services/sidebar.service';
 
 @Component({
   selector: 'note-card',
   imports: [
-    DatePipe,
-    RouterLink
+    DatePipe
   ],
   templateUrl: './note-card.component.html'
 })

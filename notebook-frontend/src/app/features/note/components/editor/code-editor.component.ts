@@ -1,9 +1,11 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, computed, inject, model, ModelSignal, Signal, signal, WritableSignal} from '@angular/core';
 import {EditorComponent} from 'ngx-monaco-editor-v2';
 import {FormsModule} from '@angular/forms';
 import {ThemeService} from '../../../../core/services/theme.service';
 import {editor} from 'monaco-editor';
+import {defaultEditorOptions} from '../../../../core/configuration/monaco-themes';
 import IStandaloneEditorConstructionOptions = editor.IStandaloneEditorConstructionOptions;
+import IStandaloneCodeEditor = editor.IStandaloneCodeEditor;
 
 
 @Component({
@@ -14,53 +16,25 @@ import IStandaloneEditorConstructionOptions = editor.IStandaloneEditorConstructi
   ],
   templateUrl: './code-editor.component.html'
 })
-export class CodeEditorComponent implements OnInit {
+export class CodeEditorComponent  {
 
-  @Input() noteMarkdown: string = '';
-  @Output() noteMarkdownChange: EventEmitter<string> = new EventEmitter<string>();
+  private themeService: ThemeService = inject(ThemeService);
+  private editor!: IStandaloneCodeEditor;
 
-  constructor(private darkThemeService: ThemeService) {
+  options: Signal<IStandaloneEditorConstructionOptions> = computed<IStandaloneEditorConstructionOptions>(() => ({
+    ...defaultEditorOptions,
+    theme: this.themeService.darkTheme() ? 'customDarkTheme' : 'customLightTheme'
+  }))
 
+  content: ModelSignal<string> = model.required<string>();
+
+
+  onEditorInit(editor: IStandaloneCodeEditor): void {
+    this.editor = editor;
   }
 
-  editorOptions: IStandaloneEditorConstructionOptions = {
-    lineNumbers: "off",
-    language: 'markdown',
-    automaticLayout: true,
-    quickSuggestions: false,
-    scrollBeyondLastLine: false,
-    padding: {
-      top: 20,
-      bottom: 20
-    },
-    scrollbar: {
-      verticalScrollbarSize: 2,
-    },
-    contextmenu: false,
-    fontFamily: 'Fira Code, monospace',
-    fontSize: 15,
-    fontLigatures: true,
-    minimap: {
-      side: "left",
-    },
-  };
-
-  ngOnInit(): void {
-    this.darkThemeService.isDarkTheme$.subscribe({
-      next: darkTheme => {
-        this.editorOptions = {...this.editorOptions, theme: darkTheme ? 'customDarkTheme' : 'customLightTheme'}
-      },
-      error: err => console.log(err)
-    })
-
-  }
 
   onModelChange(content: string): void {
-    this.emitMarkdownChange(content);
+    this.content.set(content);
   }
-
-  private emitMarkdownChange(content: string): void {
-    this.noteMarkdownChange.emit(content);
-  }
-
 }

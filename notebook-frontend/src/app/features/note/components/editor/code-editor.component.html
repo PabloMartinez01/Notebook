@@ -1,9 +1,11 @@
 <div class="flex items-center justify-center h-full w-full">
   <ngx-monaco-editor
     class="!h-full w-full rounded [&>div]:!h-full"
-    [options]="editorOptions"
-    [ngModel]="noteMarkdown"
+    [options]="options()"
+    [ngModel]="content()"
+    (onInit)="onEditorInit($event)"
     (ngModelChange)="onModelChange($event)"
+
   >
   </ngx-monaco-editor>
 </div>

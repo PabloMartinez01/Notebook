@@ -31,7 +31,6 @@
               "public/css/github-markdown-light.css",
               "public/css/github-markdown-dark.css",
               "node_modules/prismjs/themes/prism-okaidia.css",
-              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.css"
             ],
             "scripts": [
@@ -53,8 +52,7 @@
               "node_modules/prismjs/components/prism-docker.js",
               "node_modules/prismjs/components/prism-git.js",
               "node_modules/prismjs/components/prism-sql.js",
-              "node_modules/prismjs/components/prism-go.js",
-              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js"
+              "node_modules/prismjs/components/prism-go.js"
           ]
           },
           "configurations": {
