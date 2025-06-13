@@ -14,6 +14,7 @@ import org.mockito.junit.jupiter.MockitoExtension
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import java.time.LocalDateTime
+import java.util.UUID
 
 @ExtendWith(MockitoExtension::class)
 class NoteControllerUnitTest {
@@ -31,7 +32,7 @@ class NoteControllerUnitTest {
     @Test
     fun givenValidNoteRequest_whenSaveNote_thenReturnOkResponse() {
         var noteRequest: NoteRequest = NoteRequest("title", "content")
-        var noteResponse: NoteResponse = NoteResponse("kmf8dfr4", "title", LocalDateTime.now())
+        var noteResponse: NoteResponse = NoteResponse(UUID.randomUUID().toString(), "title", LocalDateTime.now())
 
         Mockito.`when`<NoteResponse>(noteService.saveNote(noteRequest)).thenReturn(noteResponse)
 
@@ -39,6 +40,30 @@ class NoteControllerUnitTest {
 
         assertThat(responseEntity).isNotNull()
         assertThat(responseEntity.statusCode).isEqualTo(HttpStatus.OK)
+    }
+
+
+    /*
+        @GetMapping
+    fun getAllNotes(): ResponseEntity<List<NoteResponse>> =
+        ResponseEntity.ok(noteService.findAllNotes())
+     */
+    @Test
+    fun givenNothing_whenGetAllNotes_thenReturnNoteResponseList(): Unit {
+
+        val noteResponses: List<NoteResponse> = listOf<NoteResponse>(
+            NoteResponse(UUID.randomUUID().toString(), "title1", LocalDateTime.now()),
+            NoteResponse(UUID.randomUUID().toString(), "title2", LocalDateTime.now()),
+            NoteResponse(UUID.randomUUID().toString(), "title3", LocalDateTime.now())
+        )
+
+        Mockito.`when`<List<NoteResponse>>(noteService.findAllNotes()).thenReturn(noteResponses)
+
+        val responseEntity: ResponseEntity<List<NoteResponse>> = noteController.getAllNotes()
+
+        assertThat(responseEntity).isNotNull()
+        assertThat(responseEntity.statusCode).isEqualTo(HttpStatus.OK)
+        assertThat(responseEntity.body).isEqualTo(noteResponses)
     }
 
 
