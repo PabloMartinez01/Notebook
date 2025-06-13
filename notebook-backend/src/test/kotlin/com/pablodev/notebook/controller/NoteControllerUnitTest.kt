@@ -43,11 +43,6 @@ class NoteControllerUnitTest {
     }
 
 
-    /*
-        @GetMapping
-    fun getAllNotes(): ResponseEntity<List<NoteResponse>> =
-        ResponseEntity.ok(noteService.findAllNotes())
-     */
     @Test
     fun givenNothing_whenGetAllNotes_thenReturnNoteResponseList(): Unit {
 
