@@ -2,12 +2,10 @@ package com.pablodev.notebook.initializers
 
 import com.pablodev.notebook.entities.Note
 import com.pablodev.notebook.repositories.NoteRepository
-import lombok.RequiredArgsConstructor
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.CommandLineRunner
 import org.springframework.stereotype.Component
 import java.time.LocalDateTime
-import java.util.UUID
+import java.util.*
 
 @Component
 class MongoDataInitializer(val noteRepository: NoteRepository): CommandLineRunner {

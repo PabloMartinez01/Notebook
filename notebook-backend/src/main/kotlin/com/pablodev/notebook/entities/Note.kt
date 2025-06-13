@@ -1,7 +1,5 @@
 package com.pablodev.notebook.entities
 
-import com.fasterxml.jackson.annotation.JsonFormat
-import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.data.mongodb.core.mapping.MongoId
 import java.time.LocalDateTime

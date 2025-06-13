@@ -7,7 +7,6 @@ import com.pablodev.notebook.entities.Note
 import com.pablodev.notebook.exceptions.NoteNotFoundException
 import com.pablodev.notebook.mappers.NoteMapper
 import com.pablodev.notebook.repositories.NoteRepository
-import org.springframework.data.mongodb.core.query.update
 import org.springframework.stereotype.Service
 
 @Service
