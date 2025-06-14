@@ -31,8 +31,8 @@ class NoteControllerUnitTest {
 
     @Test
     fun givenValidNoteRequest_whenSaveNote_thenReturnOkResponse() {
-        var noteRequest: NoteRequest = NoteRequest("title", "content")
-        var noteResponse: NoteResponse = NoteResponse(UUID.randomUUID().toString(), "title", LocalDateTime.now())
+        val noteRequest: NoteRequest = NoteRequest("title", "content")
+        val noteResponse: NoteResponse = NoteResponse(UUID.randomUUID().toString(), "title", LocalDateTime.now())
 
         Mockito.`when`<NoteResponse>(noteService.saveNote(noteRequest)).thenReturn(noteResponse)
 
