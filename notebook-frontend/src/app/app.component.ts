@@ -29,19 +29,15 @@ export class AppComponent implements OnInit{
 
   constructor() {
     effect(() => {
-      if (this.darkThemeService.darkTheme()) {
+      if (this.darkThemeService.darkTheme())
         document.documentElement.classList.add('dark')
-      }
-      else {
+      else
         document.documentElement.classList.remove('dark')
-      }
-
     })
   }
 
 
   ngOnInit(): void {
-
     this.noteService.findAllNotes().subscribe({
       next: notes => {this.notes = notes ; console.log(this.notes)},
       error: err => console.log(err)

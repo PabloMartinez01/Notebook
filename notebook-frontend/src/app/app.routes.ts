@@ -5,6 +5,11 @@ import {WelcomeViewComponent} from './features/welcome/pages/welcome-view/welcom
 
 export const routes: Routes = [
   {
+    path: '',
+    redirectTo: '/welcome',
+    pathMatch: 'full'
+  },
+  {
     path: 'note/:id',
     component: ViewNoteComponent
   },
