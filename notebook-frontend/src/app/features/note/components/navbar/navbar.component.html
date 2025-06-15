@@ -1,5 +1,25 @@
 
+<div class="h-screen group w-12 hover:w-52 transition-all duration-300 ease p-2">
+  <div class="flex flex-col gap-2 w-full">
+    <div class="whitespace-nowrap hover:bg-neutral-700 p-2 rounded cursor-pointer"
+         (click)="onClickMenu()"
+    >
+      <i class="pi pi-bars me-2 "></i>
+      <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">Menu</span>
+    </div>
+    <div class="whitespace-nowrap hover:bg-neutral-700 p-2 rounded cursor-pointer"
+         (click)="onChangeTheme()"
+    >
+      <i class="pi pi-sun me-2 "></i>
+      <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">Switch Theme</span>
+    </div>
+  </div>
+</div>
 
+
+
+
+<!--
 <nav class="flex items-center gap-2 px-4 py-2 bg-neutral-200 dark:bg-[#111111]">
   <div class="flex gap-2 items-center py-2 px-3 rounded cursor-pointer transition-all hover:bg-[var(--secondary-hover-color)]
 ease duration-200"
@@ -16,3 +36,4 @@ ease duration-200"
     <span>Switch theme</span>
   </div>
 </nav>
+-->

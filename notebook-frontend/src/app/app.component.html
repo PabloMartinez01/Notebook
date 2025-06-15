@@ -1,9 +1,11 @@
-<div class="h-screen flex flex-col">
 
-  <sidebar [notes]="notes"></sidebar>
+
+<sidebar [notes]="notes"></sidebar>
+
+
+<div class="h-screen flex">
   <menubar></menubar>
-
-  <div class="flex-1 overflow-hidden">
+  <div class="h-screen flex-1">
     <router-outlet></router-outlet>
   </div>
 
