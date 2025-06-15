@@ -1,11 +1,8 @@
-
-<div class="h-full">
-  <p-splitter [panelSizes]="[50, 50]" styleClass="max-h-full h-full">
-    <ng-template #panel>
-      <code-editor  class="!h-full w-full" [(content)]="noteMarkdown"></code-editor>
-    </ng-template>
-    <ng-template #panel>
-      <viewer class="w-full overflow-y-auto" [noteMarkdown]="noteMarkdown"></viewer>
-    </ng-template>
-  </p-splitter>
-</div>
+<p-splitter [panelSizes]="[50, 50]" styleClass="h-screen">
+  <ng-template #panel>
+    <code-editor class="w-full" [(content)]="noteMarkdown"></code-editor>
+  </ng-template>
+  <ng-template #panel>
+    <viewer class="w-full overflow-y-auto" [noteMarkdown]="noteMarkdown"></viewer>
+  </ng-template>
+</p-splitter>
