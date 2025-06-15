@@ -9,27 +9,12 @@ import {SidebarService} from '../../../../core/services/sidebar.service';
   imports: [
 
   ],
-  templateUrl: './navbar.component.html'
+  templateUrl: './menu.component.html'
 })
-export class NavbarComponent {
+export class MenuComponent {
 
   private themeService: ThemeService = inject(ThemeService);
   private sidebarService: SidebarService = inject(SidebarService);
-
-  items: Signal<MenuItem[]> = computed<MenuItem[]>(() => {
-    const darkTheme: boolean = this.themeService.darkTheme();
-    return [
-      {
-        label: 'Menu',
-        icon: 'pi pi-bars',
-      },
-      {
-        id: "theme",
-        label: (darkTheme) ? 'Light Theme' : 'Dark Theme',
-        icon: (darkTheme) ? 'pi pi-sun' : 'pi pi-moon',
-      }
-    ]
-  })
 
 
   onClickMenu(): void {
@@ -39,6 +24,5 @@ export class NavbarComponent {
   onChangeTheme(): void {
     this.themeService.toggleDarkMode()
   }
-
 
 }

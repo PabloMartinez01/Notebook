@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {CodeEditorComponent} from '../../components/editor/code-editor.component';
-import {NavbarComponent} from '../../components/navbar/navbar.component';
+import {MenuComponent} from '../../components/navbar/menu.component';
 import {Splitter} from 'primeng/splitter';
 import {ViewerComponent} from '../../components/viewer/viewer.component';
 import {NOTE_MARKDOWN} from '../../../../core/app.constants';

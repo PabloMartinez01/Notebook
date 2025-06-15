@@ -2,7 +2,7 @@ import {Component, effect, inject, OnInit} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {NOTE_MARKDOWN} from './core/app.constants';
 import {SidebarComponent} from './features/note/components/sidebar/sidebar.component';
-import {NavbarComponent} from './features/note/components/navbar/navbar.component';
+import {MenuComponent} from './features/note/components/navbar/menu.component';
 import {ThemeService} from './core/services/theme.service';
 import {NoteService} from './core/services/note.service';
 import {Note} from './core/models/note.model';
@@ -14,7 +14,7 @@ import {RouterOutlet} from '@angular/router';
   imports: [
     FormsModule,
     SidebarComponent,
-    NavbarComponent,
+    MenuComponent,
     RouterOutlet
   ],
   templateUrl: './app.component.html',
