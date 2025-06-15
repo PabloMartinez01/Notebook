@@ -1,13 +1,13 @@
 
-<div class="h-screen group w-12 hover:w-52 transition-all duration-300 ease p-2">
+<div class="h-screen group w-12 hover:w-52 transition-[width] duration-300 ease p-2 bg-neutral-200 dark:bg-neutral-900">
   <div class="flex flex-col gap-2 w-full">
-    <div class="whitespace-nowrap hover:bg-neutral-700 p-2 rounded cursor-pointer"
+    <div class="whitespace-nowrap  hover:bg-neutral-300 dark:hover:bg-neutral-800 p-2 rounded cursor-pointer"
          (click)="onClickMenu()"
     >
       <i class="pi pi-bars me-2 "></i>
       <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">Menu</span>
     </div>
-    <div class="whitespace-nowrap hover:bg-neutral-700 p-2 rounded cursor-pointer"
+    <div class="whitespace-nowrap hover:bg-neutral-300 dark:hover:bg-neutral-800 p-2 rounded cursor-pointer"
          (click)="onChangeTheme()"
     >
       <i class="pi pi-sun me-2 "></i>
