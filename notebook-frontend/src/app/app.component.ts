@@ -1,7 +1,6 @@
 import {Component, effect, inject, OnInit} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {NOTE_MARKDOWN} from './core/app.constants';
-import {SidebarComponent} from './features/note/components/sidebar/sidebar.component';
 import {MenuComponent} from './features/note/components/navbar/menu.component';
 import {ThemeService} from './core/services/theme.service';
 import {NoteService} from './core/services/note.service';
@@ -13,7 +12,6 @@ import {RouterOutlet} from '@angular/router';
   selector: 'app-root',
   imports: [
     FormsModule,
-    SidebarComponent,
     MenuComponent,
     RouterOutlet
   ],
