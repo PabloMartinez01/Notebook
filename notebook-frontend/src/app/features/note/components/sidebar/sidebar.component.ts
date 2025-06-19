@@ -9,9 +9,9 @@ import {SidebarService} from '../../../../core/services/sidebar.service';
   imports: [
 
   ],
-  templateUrl: './menu.component.html'
+  templateUrl: './sidebar.component.html'
 })
-export class MenuComponent {
+export class SidebarComponent {
 
   private themeService: ThemeService = inject(ThemeService);
   private sidebarService: SidebarService = inject(SidebarService);
