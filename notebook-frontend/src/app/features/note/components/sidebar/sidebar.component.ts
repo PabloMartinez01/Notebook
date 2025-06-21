@@ -3,10 +3,12 @@ import {Menubar} from 'primeng/menubar';
 import {MenuItem} from 'primeng/api';
 import {ThemeService} from '../../../../core/services/theme.service';
 import {SidebarService} from '../../../../core/services/sidebar.service';
+import {SidebarItemComponent} from './sidebar-item/sidebar-item.component';
 
 @Component({
   selector: 'menubar',
   imports: [
+    SidebarItemComponent
 
   ],
   templateUrl: './sidebar.component.html'

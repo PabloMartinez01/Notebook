@@ -1,71 +1,33 @@
 
-<div class="h-screen group w-16 hover:w-52 transition-[width] duration-300 ease py-5 px-3  bg-neutral-200 dark:bg-neutral-900 cursor-pointer group
+<div class="h-screen w-16 group hover:w-52 transition-[width] duration-300 ease py-5 px-3  bg-neutral-200 dark:bg-neutral-900 cursor-pointer group
 relative">
 
   <i class="fas fa-chevron-right absolute top-3 right-7 group-hover:rotate-180 transition-transform ease duration-300"></i>
 
-  <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+  <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out dark:text-neutral-400 text-neutral-800
+w-44 overflow-hidden text-nowrap">
 
-    <h1 class=" text-neutral-700 text-xl">
-      Notes
-    </h1>
-
-    <div class="flex flex-col gap-2 w-44 overflow-hidden text-nowrap p-2 text-neutral-400 [&_p]:text-sm">
-
-      <div class="flex items-center gap-2 ">
-        <span class="w-6 text-center " [innerHtml]="'&#x1F396;'"></span>
-        <p class="text-sm">Class notes </p>
-      </div>
-      <div class="flex items-center gap-2">
-        <span class="w-6 text-center">🗒️</span>
-        <p>To-do list</p>
-      </div>
-      <div class="flex items-center gap-2">
-        <span class="w-6 text-center">🧾</span>
-        <p>Electricity bill</p>
-      </div>
-      <div class="flex items-center gap-2">
-        <span class="w-6 text-center">📰</span>
-        <p>Today's news</p>
-      </div>
-      <div class="flex items-center gap-2">
-        <span class="w-6 text-center">🧠</span>
-        <p>Random ideas</p>
-      </div>
-      <div class="flex items-center gap-2">
-        <span class="w-6 text-center">📌</span>
-        <p>Important stuff</p>
-      </div>
-      <div class="flex items-center gap-2">
-        <span class="w-6 text-center">📍</span>
-        <p>Places to visit</p>
-      </div>
-      <div class="flex items-center gap-2">
-        <span class="w-6 text-center">🔖</span>
-        <p>Books to read</p>
-      </div>
-      <div class="flex items-center gap-2">
-        <span class="w-6 text-center">✏️</span>
-        <p>To edit</p>
-      </div>
-      <div class="flex items-center gap-2">
-        <span class="w-6 text-center">🗂️</span>
-        <p>Useful documents</p>
-      </div>
-      <div class="flex items-center gap-2">
-        <span class="w-6 text-center">📓</span>
-        <p>Personal journal</p>
-      </div>
-      <div class="flex items-center gap-2">
-        <span class="w-6 text-center">📋</span>
-        <p>Shopping list</p>
-      </div>
-
+    <h1 class=" text-neutral-700 text-xl">Notes</h1>
+    <div class="flex flex-col p-2">
+      <sidebar-item icon="📝" title="Class notes"></sidebar-item>
+      <sidebar-item icon="🗒️" title="To-do list"></sidebar-item>
+      <sidebar-item icon="🧾" title="Electricity bill"></sidebar-item>
+      <sidebar-item icon="📰" title="Today's news"></sidebar-item>
+      <sidebar-item icon="🧠" title="Random ideas"></sidebar-item>
+      <sidebar-item icon="📌" title="Important stuff"></sidebar-item>
+      <sidebar-item icon="📍" title="Places to visit"></sidebar-item>
+      <sidebar-item icon="🔖" title="Books to read"></sidebar-item>
+      <sidebar-item icon="✏️" title="To edit"></sidebar-item>
+      <sidebar-item icon="🗂️" title="Useful documents"></sidebar-item>
+      <sidebar-item icon="📓" title="Personal journal"></sidebar-item>
+      <sidebar-item icon="📋" title="Shopping list"></sidebar-item>
     </div>
 
-    <h1 class=" text-neutral-700 text-xl mt-5">
-      Actions
-    </h1>
+    <h1 class=" text-neutral-700 text-xl mt-5">Actions</h1>
+    <div class="flex flex-col gap-2 p-2">
+      <sidebar-item (click)="onChangeTheme()" icon="⚙️" title="Switch theme"></sidebar-item>
+    </div>
+
   </div>
 
 
