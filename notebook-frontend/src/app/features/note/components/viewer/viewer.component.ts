@@ -1,4 +1,4 @@
-import {Component, effect, inject, Input, OnInit, Signal} from '@angular/core';
+import {Component, inject, Input, Signal} from '@angular/core';
 import {MarkdownComponent} from 'ngx-markdown';
 import {ThemeService} from '../../../../core/services/theme.service';
 import {NgClass} from '@angular/common';
@@ -13,7 +13,7 @@ import {NgClass} from '@angular/common';
 })
 export class ViewerComponent {
 
-  private themeService: ThemeService = inject(ThemeService);
+  private readonly themeService: ThemeService = inject(ThemeService);
   darkTheme: Signal<boolean> = this.themeService.darkTheme;
 
   @Input() noteMarkdown: string = '';
