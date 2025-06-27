@@ -1,4 +1,8 @@
-<p-splitter [panelSizes]="[50, 50]" styleClass="h-screen !border-none">
+<div class="h-[8vh]">
+  <note-info></note-info>
+</div>
+
+<p-splitter [panelSizes]="[50, 50]" styleClass="h-[92vh] !border-none">
   <ng-template #panel>
     <code-editor class="w-full" [(content)]="noteMarkdown"></code-editor>
   </ng-template>

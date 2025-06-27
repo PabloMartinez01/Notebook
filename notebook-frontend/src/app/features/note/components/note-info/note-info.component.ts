@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import {Component, input, InputSignal} from '@angular/core';
+import {Note} from '../../../../core/models/note.model';
 
 @Component({
-  selector: 'app-note-info',
+  selector: 'note-info',
   imports: [],
-  templateUrl: './note-info.component.html',
-  styleUrl: './note-info.component.css'
+  templateUrl: './note-info.component.html'
 })
 export class NoteInfoComponent {
+
+
+
 
 }
