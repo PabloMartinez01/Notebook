@@ -1,10 +1,17 @@
-<div class="h-full px-5 py-2">
+<div class="h-full px-5 py-2 flex justify-between items-center">
 
-  <div class="relative w-fit">
-    <input type="text" [value]="title()"
-           class="block outline-none text-xl bg-neutral-900 ps-2 pe-7 py-1 rounded "/>
-    <i class="fas fa-pencil absolute right-2 top-[50%] bottom-0 -translate-y-1/2 m-auto w-fit w-[1em]"></i>
+  <div>
+    <div class="relative w-fit">
+      <input type="text"
+             [value]="title()"
+             class="block outline-none text-xl bg-neutral-900 ps-2 pe-7 py-1 rounded "/>
+      <i class="fas fa-pencil absolute right-2 top-[50%] bottom-0 -translate-y-1/2 m-auto w-[1em]"></i>
+    </div>
+    <small class="text-xs ps-2">04/06/2022</small>
   </div>
 
-  <small class="text-xs ps-2">04/06/2022</small>
+  <div class="px-2 py-1 cursor-pointer hover:bg-neutral-800 rounded">
+    <i class="fas fa-save me-2"></i><span class="text-sm">Save</span>
+  </div>
+
 </div>
