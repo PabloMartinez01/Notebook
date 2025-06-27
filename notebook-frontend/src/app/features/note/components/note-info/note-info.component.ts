@@ -8,6 +8,8 @@ import {Note} from '../../../../core/models/note.model';
 })
 export class NoteInfoComponent {
 
+  title: InputSignal<string> = input.required<string>();
+  date: InputSignal<string> = input.required<string>();
 
 
 

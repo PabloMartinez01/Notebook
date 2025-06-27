@@ -1,4 +1,10 @@
 <div class="h-full px-5 py-2">
-  <h2 class="text-2xl">Note title</h2>
-  <small>04/06/2022</small>
+
+  <div class="relative w-fit">
+    <input type="text" [value]="title()"
+           class="block outline-none text-xl bg-neutral-900 ps-2 pe-7 py-1 rounded "/>
+    <i class="fas fa-pencil absolute right-2 top-[50%] bottom-0 -translate-y-1/2 m-auto w-fit w-[1em]"></i>
+  </div>
+
+  <small class="text-xs ps-2">04/06/2022</small>
 </div>
