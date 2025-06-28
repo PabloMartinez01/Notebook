@@ -1,16 +1,17 @@
-import {Component, input, InputSignal} from '@angular/core';
+import {Component, input, InputSignal, model, ModelSignal} from '@angular/core';
 import {Note} from '../../../../core/models/note.model';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'note-info',
-  imports: [],
+  imports: [
+    FormsModule
+  ],
   templateUrl: './note-info.component.html'
 })
 export class NoteInfoComponent {
 
-  title: InputSignal<string> = input.required<string>();
+  title: ModelSignal<string> = model.required<string>();
   date: InputSignal<string> = input.required<string>();
-
-
 
 }
