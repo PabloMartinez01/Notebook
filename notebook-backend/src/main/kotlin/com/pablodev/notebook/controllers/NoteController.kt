@@ -24,6 +24,10 @@ class NoteController (private val noteService: NoteService) {
     fun getNoteDetailsById(@PathVariable id: String): ResponseEntity<NoteDetailResponse> =
         ResponseEntity.ok(noteService.findNoteDetailById(id))
 
+    @PutMapping("/{id}")
+    fun updateNote(@PathVariable id: String, @RequestBody noteRequest: NoteRequest): ResponseEntity<NoteResponse> =
+        ResponseEntity.ok(noteService.updateNote(id, noteRequest));
+
     @DeleteMapping("/{id}")
     fun deleteNoteById(@PathVariable id: String): ResponseEntity<Any> {
         noteService.deleteNoteById(id)
