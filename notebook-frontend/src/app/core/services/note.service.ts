@@ -9,7 +9,7 @@ import {NoteRequest} from '../models/note-request.model';
 })
 export class NoteService {
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private readonly httpClient: HttpClient) {
 
   }
 
@@ -17,8 +17,8 @@ export class NoteService {
     return this.httpClient.get<Note[]>("http://localhost:8080/notes")
   }
 
-  createNote(noteRequest: NoteRequest): Observable<Note> {
-    return this.httpClient.post<Note>("http://localhost:8080/notes", noteRequest);
+  createNote(): Observable<Note> {
+    return this.httpClient.post<Note>("http://localhost:8080/notes", {title: "New note", content: ""});
   }
 
 
