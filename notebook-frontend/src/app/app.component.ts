@@ -1,4 +1,4 @@
-import {Component, effect, inject, OnInit} from '@angular/core';
+import {Component, effect, inject, OnInit, signal, WritableSignal} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {NOTE_MARKDOWN} from './core/app.constants';
 import {SidebarComponent} from './features/note/components/sidebar/sidebar.component';
@@ -6,6 +6,7 @@ import {ThemeService} from './core/services/theme.service';
 import {NoteService} from './core/services/note.service';
 import {Note} from './core/models/note.model';
 import {RouterOutlet} from '@angular/router';
+import {toSignal} from '@angular/core/rxjs-interop';
 
 
 @Component({
@@ -20,10 +21,11 @@ import {RouterOutlet} from '@angular/router';
 })
 export class AppComponent implements OnInit{
 
-  private darkThemeService: ThemeService = inject(ThemeService);
-  private noteService: NoteService = inject(NoteService)
+  private readonly darkThemeService: ThemeService = inject(ThemeService);
+  private readonly noteService: NoteService = inject(NoteService)
 
-  notes: Note[] = [];
+  notes: WritableSignal<Note[]> = signal<Note[]>([])
+
 
   constructor() {
     effect(() => {
@@ -37,9 +39,10 @@ export class AppComponent implements OnInit{
 
   ngOnInit(): void {
     this.noteService.findAllNotes().subscribe({
-      next: notes => {this.notes = notes ; console.log(this.notes)},
+      next: notes => this.notes.set(notes),
       error: err => console.log(err)
     })
+
 
   }
 
