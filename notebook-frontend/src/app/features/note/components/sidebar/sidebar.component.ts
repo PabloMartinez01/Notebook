@@ -1,8 +1,5 @@
-import {Component, computed, effect, EventEmitter, inject, Input, OnInit, Output, Signal} from '@angular/core';
-import {Menubar} from 'primeng/menubar';
-import {MenuItem} from 'primeng/api';
+import {Component, inject} from '@angular/core';
 import {ThemeService} from '../../../../core/services/theme.service';
-import {SidebarService} from '../../../../core/services/sidebar.service';
 import {SidebarItemComponent} from './sidebar-item/sidebar-item.component';
 
 @Component({
@@ -15,13 +12,7 @@ import {SidebarItemComponent} from './sidebar-item/sidebar-item.component';
 })
 export class SidebarComponent {
 
-  private themeService: ThemeService = inject(ThemeService);
-  private sidebarService: SidebarService = inject(SidebarService);
-
-
-  onClickMenu(): void {
-    this.sidebarService.open();
-  }
+  private readonly themeService: ThemeService = inject(ThemeService);
 
   onChangeTheme(): void {
     this.themeService.toggleDarkMode()
