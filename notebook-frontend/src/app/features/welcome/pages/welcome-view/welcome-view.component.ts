@@ -1,5 +1,6 @@
-import {Component, signal, WritableSignal} from '@angular/core';
+import {Component, inject, signal, WritableSignal} from '@angular/core';
 import {PickerComponent} from '@ctrl/ngx-emoji-mart';
+import {NoteService} from '../../../../core/services/note.service';
 
 @Component({
   selector: 'app-welcome-view',
@@ -9,7 +10,9 @@ import {PickerComponent} from '@ctrl/ngx-emoji-mart';
 })
 export class WelcomeViewComponent {
 
-  emoji: WritableSignal<string> = signal<string>("");
+  noteService: NoteService = inject(NoteService);
+
+
 
 
 }
