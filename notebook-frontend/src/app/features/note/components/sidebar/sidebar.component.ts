@@ -1,7 +1,8 @@
-import {Component, inject, input, InputSignal} from '@angular/core';
+import {Component, inject, input, InputSignal, Signal} from '@angular/core';
 import {ThemeService} from '../../../../core/services/theme.service';
 import {SidebarItemComponent} from './sidebar-item/sidebar-item.component';
 import {Note} from '../../../../core/models/note.model';
+import {NoteService} from '../../../../core/services/note.service';
 
 @Component({
   selector: 'sidebar',
@@ -14,8 +15,9 @@ import {Note} from '../../../../core/models/note.model';
 export class SidebarComponent {
 
   private readonly themeService: ThemeService = inject(ThemeService);
+  private readonly noteService: NoteService = inject(NoteService);
 
-  notes: InputSignal<Note[]> = input.required<Note[]>();
+  notes: Signal<Note[]> = this.noteService.notes;
 
   onChangeTheme(): void {
     this.themeService.toggleDarkMode()

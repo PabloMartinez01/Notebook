@@ -1,6 +1,7 @@
 import {inject, Injectable, Signal, signal, WritableSignal} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Note} from '../models/note.model';
+import {Observable, tap} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -20,11 +21,11 @@ export class NoteService {
     })
   }
 
-  createNote(): void {
-    this.httpClient.post<Note>("http://localhost:8080/notes", {title: "New note", content: ""}).subscribe({
-      next: note => this._notes.update(notes => [...notes, note]),
-      error: err => console.log(err)
-    })
+  createNote(): Observable<Note> {
+    return this.httpClient.post<Note>("http://localhost:8080/notes", {title: "New note", content: ""})
+      .pipe(
+        tap(note => this._notes.update(notes => [...notes, note]))
+      )
   }
 
 

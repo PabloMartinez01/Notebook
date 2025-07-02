@@ -12,6 +12,13 @@ export class WelcomeViewComponent {
 
   noteService: NoteService = inject(NoteService);
 
+  createNote(): void {
+    this.noteService.createNote().subscribe({
+      next: note => console.log(note),
+      error: err => console.log(err)
+    })
+  }
+
 
 
 
