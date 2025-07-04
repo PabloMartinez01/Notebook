@@ -4,7 +4,7 @@ import {NOTE_MARKDOWN} from './core/app.constants';
 import {SidebarComponent} from './features/note/components/sidebar/sidebar.component';
 import {ThemeService} from './core/services/theme.service';
 import {NoteService} from './core/services/note.service';
-import {Note} from './core/models/note.model';
+import {NoteInfo} from './core/models/note-info.model';
 import {RouterOutlet} from '@angular/router';
 import {toSignal} from '@angular/core/rxjs-interop';
 
@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
   private readonly darkThemeService: ThemeService = inject(ThemeService);
   private readonly noteService: NoteService = inject(NoteService)
 
-  notes: Signal<Note[]> = this.noteService.notes;
+  notes: Signal<NoteInfo[]> = this.noteService.notes;
 
   constructor() {
     effect(() => {
