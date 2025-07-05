@@ -31,7 +31,7 @@ export class NoteService {
   }
 
   findNote(id: string): Observable<Note>{
-    return this.httpClient.get<Note>("http://localhost:8080/note/" + id);
+    return this.httpClient.get<Note>("http://localhost:8080/notes/" + id);
   }
 
 

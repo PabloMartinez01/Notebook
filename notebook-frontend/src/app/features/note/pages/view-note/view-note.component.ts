@@ -7,7 +7,7 @@ import {NoteInfoComponent} from '../../components/note-info/note-info.component'
 import {ActivatedRoute} from '@angular/router';
 import {NoteService} from '../../../../core/services/note.service';
 import {Note} from '../../../../core/models/note.model';
-import {switchMap} from 'rxjs';
+import {flatMap, switchMap} from 'rxjs';
 
 @Component({
   selector: 'app-view-note',
