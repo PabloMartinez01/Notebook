@@ -10,8 +10,10 @@
     <small class="text-xs ps-2">{{date()}}</small>
   </div>
 
-  <div class="px-2 py-1 cursor-pointer hover:bg-neutral-800 rounded">
+  <button class="px-2 py-1 cursor-pointer hover:bg-neutral-800 rounded"
+          (click)="save()"
+  >
     <i class="fas fa-save me-2"></i><span class="text-sm">Save</span>
-  </div>
+  </button>
 
 </div>

@@ -2,36 +2,43 @@ import {inject, Injectable, Signal, signal, WritableSignal} from '@angular/core'
 import {HttpClient} from '@angular/common/http';
 import {NoteInfo} from '../models/note-info.model';
 import {Observable, tap} from 'rxjs';
-import {toSignal} from '@angular/core/rxjs-interop';
 import {Note} from '../models/note.model';
+import {NoteRequest} from '../models/note-request.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NoteService {
 
-  private readonly httpClient: HttpClient = inject(HttpClient);
+  private readonly API_ENDPOINT: string = "http://localhost:8080/notes"
+  private readonly DEFAULT_NOTE: NoteRequest = {title: "New note", content: ""}
 
-  private _notes: WritableSignal<NoteInfo[]> = signal([]);
+  private readonly httpClient: HttpClient = inject(HttpClient);
+  private readonly _notes: WritableSignal<NoteInfo[]> = signal([]);
+
   notes: Signal<NoteInfo[]> = this._notes.asReadonly();
 
 
   findAllNotes(): void {
-    this.httpClient.get<NoteInfo[]>("http://localhost:8080/notes").subscribe({
+    this.httpClient.get<NoteInfo[]>(this.API_ENDPOINT).subscribe({
       next: notes => this._notes.set(notes),
       error: err => console.log(err)
     })
   }
 
   createNote(): Observable<NoteInfo> {
-    return this.httpClient.post<NoteInfo>("http://localhost:8080/notes", {title: "New note", content: ""})
+    return this.httpClient.post<NoteInfo>(this.API_ENDPOINT, this.DEFAULT_NOTE)
       .pipe(
         tap(note => this._notes.update(notes => [...notes, note]))
       )
   }
 
+  saveNote(id: string, noteRequest: NoteRequest): Observable<NoteInfo> {
+    return this.httpClient.put<NoteInfo>(`${this.API_ENDPOINT}/${id}`, noteRequest);
+  }
+
   findNote(id: string): Observable<Note>{
-    return this.httpClient.get<Note>("http://localhost:8080/notes/" + id);
+    return this.httpClient.get<Note>(`${this.API_ENDPOINT}/${id}`);
   }
 
 

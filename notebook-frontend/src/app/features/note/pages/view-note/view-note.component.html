@@ -1,10 +1,17 @@
 <div class="h-[8vh]">
-  <note-info [title]="title()" [date]="date()"></note-info>
+  <note-info
+    [title]="title()"
+    [date]="date()"
+    (onSave)="saveNote()"
+  ></note-info>
 </div>
 
 <p-splitter [panelSizes]="[50, 50]" styleClass="h-[92vh] !border-none">
   <ng-template #panel>
-    <code-editor class="w-full" [(content)]="content"></code-editor>
+    <code-editor class="w-full"
+                 [content]="content()"
+                 (onChange)="onEditorChange($event)"
+    ></code-editor>
   </ng-template>
   <ng-template #panel>
     <viewer class="w-full overflow-y-auto" [noteMarkdown]="content()"></viewer>

@@ -1,5 +1,4 @@
-import {Component, input, InputSignal, model, ModelSignal} from '@angular/core';
-import {NoteInfo} from '../../../../core/models/note-info.model';
+import {Component, input, InputSignal, model, ModelSignal, output, OutputEmitterRef} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 
 @Component({
@@ -11,7 +10,13 @@ import {FormsModule} from '@angular/forms';
 })
 export class NoteInfoComponent {
 
+  readonly onSave: OutputEmitterRef<void> = output<void>();
+
   title: ModelSignal<string> = model.required<string>();
   date: InputSignal<string> = input.required<string>();
+
+  save(): void {
+    this.onSave.emit();
+  }
 
 }

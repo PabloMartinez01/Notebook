@@ -15,6 +15,7 @@ relative">
           [icon]="getIcon($index)"
           [title]="note.title"
           (click)="navigateToNote(note.id)"
+          (keydown.enter)="navigateToNote(note.id)"
         ></sidebar-item>
       }
 

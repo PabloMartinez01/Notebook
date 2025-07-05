@@ -1,4 +1,14 @@
-import {Component, computed, inject, model, ModelSignal, Signal, signal, WritableSignal} from '@angular/core';
+import {
+  Component,
+  computed,
+  inject, input, InputSignal,
+  model,
+  ModelSignal, output,
+  OutputEmitterRef,
+  Signal,
+  signal,
+  WritableSignal
+} from '@angular/core';
 import {EditorComponent} from 'ngx-monaco-editor-v2';
 import {FormsModule} from '@angular/forms';
 import {ThemeService} from '../../../../core/services/theme.service';
@@ -18,23 +28,18 @@ import IStandaloneCodeEditor = editor.IStandaloneCodeEditor;
 })
 export class CodeEditorComponent  {
 
-  private themeService: ThemeService = inject(ThemeService);
-  private editor!: IStandaloneCodeEditor;
+  private readonly themeService: ThemeService = inject(ThemeService);
 
   options: Signal<IStandaloneEditorConstructionOptions> = computed<IStandaloneEditorConstructionOptions>(() => ({
     ...defaultEditorOptions,
     theme: this.themeService.darkTheme() ? 'customDarkTheme' : 'customLightTheme'
   }))
 
-  content: ModelSignal<string> = model.required<string>();
-
-
-  onEditorInit(editor: IStandaloneCodeEditor): void {
-    this.editor = editor;
-  }
-
+  onChange: OutputEmitterRef<string> = output<string>();
+  content: InputSignal<string> = input.required<string>();
 
   onModelChange(content: string): void {
-    this.content.set(content);
+    this.onChange.emit(content);
   }
+
 }
