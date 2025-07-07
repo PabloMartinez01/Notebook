@@ -2,12 +2,11 @@ import {Component, computed, inject, linkedSignal, OnInit, signal, Signal, Writa
 import {CodeEditorComponent} from '../../components/editor/code-editor.component';
 import {Splitter} from 'primeng/splitter';
 import {ViewerComponent} from '../../components/viewer/viewer.component';
-import {NOTE_MARKDOWN} from '../../../../core/app.constants';
 import {NoteInfoComponent} from '../../components/note-info/note-info.component';
 import {ActivatedRoute} from '@angular/router';
 import {NoteService} from '../../../../core/services/note.service';
 import {Note} from '../../../../core/models/note.model';
-import {flatMap, switchMap} from 'rxjs';
+import {switchMap} from 'rxjs';
 
 @Component({
   selector: 'app-view-note',
