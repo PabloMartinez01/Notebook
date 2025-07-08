@@ -9,7 +9,7 @@ import {Note} from '../../../../core/models/note.model';
 import {switchMap} from 'rxjs';
 
 @Component({
-  selector: 'app-view-note',
+  selector: 'view-note',
   imports: [
     Splitter,
     ViewerComponent,
