@@ -7,6 +7,7 @@ import {NoteService} from './core/services/note.service';
 import {NoteInfo} from './core/models/note-info.model';
 import {RouterOutlet} from '@angular/router';
 import {toSignal} from '@angular/core/rxjs-interop';
+import {error} from '@angular/compiler-cli/src/transformers/util';
 
 
 @Component({
@@ -36,6 +37,9 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.noteService.findAllNotes();
+    this.noteService.findAllNotes().subscribe({
+      next: value => console.log("Notes loaded"),
+      error: err => console.log(err)
+    })
   }
 }

@@ -44,8 +44,8 @@ export class ViewNoteComponent implements OnInit {
     console.log(note)
     if (note) {
       this.noteService.saveNote(note.id, {title: note.title, content: note.content}).subscribe({
-        next: value => console.log(value),
-        error: err => console.log(err)
+        next: note => console.log(note),
+        err: err => console.log(err)
       })
     }
   }
