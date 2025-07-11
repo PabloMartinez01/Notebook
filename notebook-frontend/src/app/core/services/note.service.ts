@@ -18,7 +18,6 @@ export class NoteService {
 
   notes: Signal<NoteInfo[]> = this._notes.asReadonly();
 
-
   findAllNotes(): void {
     this.httpClient.get<NoteInfo[]>(this.API_ENDPOINT).subscribe({
       next: notes => this._notes.set(notes),
@@ -29,16 +28,27 @@ export class NoteService {
   createNote(): Observable<NoteInfo> {
     return this.httpClient.post<NoteInfo>(this.API_ENDPOINT, this.DEFAULT_NOTE)
       .pipe(
-        tap(note => this._notes.update(notes => [...notes, note]))
+        tap(note => this.addNoteToSignalList(note))
       )
   }
 
   saveNote(id: string, noteRequest: NoteRequest): Observable<NoteInfo> {
-    return this.httpClient.put<NoteInfo>(`${this.API_ENDPOINT}/${id}`, noteRequest);
+    return this.httpClient.put<NoteInfo>(`${this.API_ENDPOINT}/${id}`, noteRequest)
+      .pipe(
+        tap(note => this.updateNoteInSignalList(note))
+      );
   }
 
   findNote(id: string): Observable<Note>{
     return this.httpClient.get<Note>(`${this.API_ENDPOINT}/${id}`);
+  }
+
+  private addNoteToSignalList(note: NoteInfo) {
+    this._notes.update(notes => [...notes, note]);
+  }
+
+  private updateNoteInSignalList(note: NoteInfo) {
+    this._notes.update(notes => notes.map(n => (n.id === note.id) ? note : n));
   }
 
 

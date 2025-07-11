@@ -41,12 +41,17 @@ export class ViewNoteComponent implements OnInit {
 
   saveNote(): void {
     const note: Note | null = this.note();
+    console.log(note)
     if (note) {
       this.noteService.saveNote(note.id, {title: note.title, content: note.content}).subscribe({
         next: value => console.log(value),
         error: err => console.log(err)
       })
     }
+  }
+
+  changeTitle(title: string): void {
+    this.note.update(note => note ? {...note, title} : null);
   }
 
   onEditorChange(content: string) {

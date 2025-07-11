@@ -11,12 +11,18 @@ import {FormsModule} from '@angular/forms';
 export class NoteInfoComponent {
 
   readonly onSave: OutputEmitterRef<void> = output<void>();
+  readonly onChangeTitle: OutputEmitterRef<string> = output<string>();
 
-  title: ModelSignal<string> = model.required<string>();
+  title: InputSignal<string> = model.required<string>();
   date: InputSignal<string> = input.required<string>();
 
   save(): void {
     this.onSave.emit();
+  }
+
+  onChangeInput(event: Event): void {
+    const value: string = (event.target as HTMLInputElement).value ?? '';
+    this.onChangeTitle.emit(value);
   }
 
 }

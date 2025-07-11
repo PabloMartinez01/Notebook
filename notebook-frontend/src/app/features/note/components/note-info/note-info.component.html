@@ -3,7 +3,8 @@
   <div>
     <div class="relative w-fit">
       <input type="text"
-             [(ngModel)]="title"
+             [value]="title()"
+             (change)="onChangeInput($event)"
              class="block outline-none text-xl bg-neutral-900 ps-2 pe-7 py-1 rounded "/>
       <i class="fas fa-pencil absolute right-2 top-[50%] bottom-0 -translate-y-1/2 m-auto w-[1em]"></i>
     </div>
