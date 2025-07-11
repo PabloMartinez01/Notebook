@@ -32,9 +32,14 @@ export class NoteService {
   }
 
   saveNote(id: string, noteRequest: NoteRequest): Observable<NoteInfo> {
-    return this.httpClient.put<NoteInfo>(`${this.API_ENDPOINT}/${id}`, noteRequest).pipe(
-      tap(note => this.updateNoteInSignalList(note))
+    return this.httpClient.put<NoteInfo>(`${this.API_ENDPOINT}/${id}`, noteRequest)
+      .pipe(
+        tap(note => this.updateNoteInSignalList(note))
     );
+  }
+
+  findNote(id: string): Observable<Note> {
+    return this.httpClient.get<Note>(`${this.API_ENDPOINT}/${id}`);
   }
 
   private addNoteToSignalList(note: NoteInfo) {

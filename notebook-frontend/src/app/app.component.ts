@@ -1,13 +1,10 @@
-import {Component, effect, inject, OnInit, Signal, signal, WritableSignal} from '@angular/core';
+import {Component, effect, inject, OnInit, Signal} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {NOTE_MARKDOWN} from './core/app.constants';
 import {SidebarComponent} from './features/note/components/sidebar/sidebar.component';
 import {ThemeService} from './core/services/theme.service';
 import {NoteService} from './core/services/note.service';
 import {NoteInfo} from './core/models/note-info.model';
 import {RouterOutlet} from '@angular/router';
-import {toSignal} from '@angular/core/rxjs-interop';
-import {error} from '@angular/compiler-cli/src/transformers/util';
 
 
 @Component({
