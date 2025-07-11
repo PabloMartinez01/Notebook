@@ -1,4 +1,4 @@
-import {Component, computed, inject, linkedSignal, OnInit, signal, Signal, WritableSignal} from '@angular/core';
+import {Component, computed, inject, OnInit, signal, Signal, WritableSignal} from '@angular/core';
 import {CodeEditorComponent} from '../../components/editor/code-editor.component';
 import {Splitter} from 'primeng/splitter';
 import {ViewerComponent} from '../../components/viewer/viewer.component';
@@ -41,7 +41,6 @@ export class ViewNoteComponent implements OnInit {
 
   saveNote(): void {
     const note: Note | null = this.note();
-    console.log(note)
     if (note) {
       this.noteService.saveNote(note.id, {title: note.title, content: note.content}).subscribe({
         next: note => console.log(note),
