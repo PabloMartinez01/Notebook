@@ -314,6 +314,14 @@
   border-left: .25em solid #3d444d;
 }
 
+.markdown-body-dark  ul {
+  list-style-type: disc;
+}
+
+.markdown-body-dark  ol {
+  list-style-type: decimal;
+}
+
 .markdown-body-dark ul,
 .markdown-body-dark ol {
   margin-top: 0;
