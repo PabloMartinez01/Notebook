@@ -1,17 +1,17 @@
 <div class="h-full px-5 py-2 flex justify-between items-center">
 
   <div>
-    <div class="relative w-fit">
+    <div class="relative w-fit px-7">
       <input type="text"
              [value]="title()"
              (change)="onChangeInput($event)"
-             class="block outline-none text-xl bg-neutral-900 ps-2 pe-7 py-1 rounded "/>
-      <i class="fas fa-pencil absolute right-2 top-[50%] bottom-0 -translate-y-1/2 m-auto w-[1em]"></i>
+             class="block outline-none text-xl border-b border-neutral-500 "/>
+      <i class="fas fa-pencil absolute right-2 top-[50%] bottom-0 -translate-y-1/2 left-0 w-[1em]"></i>
     </div>
-    <small class="text-xs ps-2">{{date()}}</small>
+    <small class="text-xs ps-7 text-neutral-700 dark:text-neutral-400">{{date() | date}}</small>
   </div>
 
-  <button class="px-2 py-1 cursor-pointer hover:bg-neutral-800 rounded"
+  <button class="px-2 py-1 cursor-pointer hover:bg-neutral-200 dark:hover:bg-neutral-800 rounded"
           (click)="save()"
   >
     <i class="fas fa-save me-2"></i><span class="text-sm">Save</span>

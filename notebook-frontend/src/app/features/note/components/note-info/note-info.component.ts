@@ -1,10 +1,12 @@
 import {Component, input, InputSignal, model, ModelSignal, output, OutputEmitterRef} from '@angular/core';
 import {FormsModule} from '@angular/forms';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'note-info',
   imports: [
-    FormsModule
+    FormsModule,
+    DatePipe
   ],
   templateUrl: './note-info.component.html'
 })

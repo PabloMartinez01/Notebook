@@ -45,7 +45,7 @@ export const customLightTheme: IStandaloneThemeData = {
     { token: 'invalid', foreground: 'C02B2B' }
   ],
   colors: {
-    'editor.background': '#f8f8f8',
+    'editor.background': '#ffffff',
     'editor.foreground': '#101010',
     'editor.lineHighlightBackground': '#EAEFFD',
     'editorCursor.foreground': '#2A45A0',
