@@ -1,17 +1,19 @@
 import {
-  Component, ElementRef, HostListener,
-  input,
-  InputSignal,
+  Component,
+  computed,
   model,
   ModelSignal,
   output,
-  OutputEmitterRef, signal, ViewChild,
+  OutputEmitterRef,
+  Signal,
+  signal,
   WritableSignal
 } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {DatePipe} from '@angular/common';
 import {PickerComponent} from '@ctrl/ngx-emoji-mart';
 import {EmojiComponent, EmojiData} from '@ctrl/ngx-emoji-mart/ngx-emoji';
+import {Note} from '../../../../core/models/note.model';
 
 @Component({
   selector: 'note-info',
@@ -26,10 +28,8 @@ import {EmojiComponent, EmojiData} from '@ctrl/ngx-emoji-mart/ngx-emoji';
 export class NoteInfoComponent {
 
   readonly onSave: OutputEmitterRef<void> = output<void>();
-  readonly onChangeTitle: OutputEmitterRef<string> = output<string>();
 
-  title: InputSignal<string> = model.required<string>();
-  date: InputSignal<string> = input.required<string>();
+  note: ModelSignal<Note | null> = model.required<Note | null>();
 
   showIconPicker: WritableSignal<boolean> = signal<boolean>(false);
   icon = signal(":smile:")
@@ -40,8 +40,9 @@ export class NoteInfoComponent {
   }
 
   onChangeInput(event: Event): void {
-    const value: string = (event.target as HTMLInputElement).value ?? '';
-    this.onChangeTitle.emit(value);
+    const title: string = (event.target as HTMLInputElement).value;
+    if (title && this.note())
+      this.note.update(note => note ? { ...note, title } : null);
   }
 
   onChangeIcon(event: { emoji: EmojiData; $event: PointerEvent }) {

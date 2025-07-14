@@ -1,9 +1,7 @@
 <div class="h-[8vh]">
   <note-info
-    [title]="title()"
-    [date]="date()"
+    [(note)]="note"
     (onSave)="saveNote()"
-    (onChangeTitle)="changeTitle($event)"
   ></note-info>
 </div>
 

@@ -25,8 +25,6 @@ export class ViewNoteComponent implements OnInit {
 
   note: WritableSignal<Note | null> = signal(null);
 
-  title: Signal<string> = computed(() => this.note()?.title ?? '');
-  date: Signal<string> = computed(() => this.note()?.date ?? '');
   content: Signal<string>= computed(() => this.note()?.content ?? '');
 
 
@@ -49,9 +47,6 @@ export class ViewNoteComponent implements OnInit {
     }
   }
 
-  changeTitle(title: string): void {
-    this.note.update(note => note ? {...note, title} : null);
-  }
 
   onEditorChange(content: string) {
     this.note.update(note => note ? { ...note, content } : null);
