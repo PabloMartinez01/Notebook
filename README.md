@@ -1,4 +1,4 @@
-# Markdown Notebook
+# Markdown Notebook 
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)](https://spring.io/projects/spring-boot)
 [![Kotlin](https://img.shields.io/badge/Kotlin-0095D5?style=for-the-badge&logo=kotlin&logoColor=white)](https://kotlinlang.org/)
 [![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)](https://angular.io/)
@@ -27,7 +27,7 @@ El objetivo principal es ofrecer una experiencia ligera y enfocada para la creac
 - **Spring Boot + Kotlin:** desarrollo backend.
 - **Angular + TypeScript:** frontend reactivo y modular.
 - **MongoDB:** base de datos NoSQL para la persistencia de documentos.
-- **Tailwind CSS:** estilos utilitarios para una interfaz limpia y responsive.
+- **Tailwind CSS:** estilos para una interfaz limpia y responsive.
 - **Markdown:** formato estándar para escribir notas con estilo.
 
 ## 📦 Estructura del proyecto
@@ -65,7 +65,6 @@ Para ejecutar correctamente la aplicación Markdown Notebook, asegúrate de tene
 - `@ctrl/ngx-emoji-mart`: selector de emojis para enriquecer las notas
 - `github-markdown-css`, `monaco-themes`: temas visuales para una apariencia consistente
 
----
 
 
 
