@@ -19,18 +19,21 @@ class MongoDataInitializer(val noteRepository: NoteRepository): CommandLineRunne
                 id = UUID.randomUUID().toString(),
                 title = "Note 1",
                 content = "This is the first note",
+                icon = "1F600",
                 date = LocalDateTime.now()
             ),
             Note(
                 id = UUID.randomUUID().toString(),
                 title = "Note 2",
                 content = "This is the second note",
+                icon = "1F4DD",
                 date = LocalDateTime.now()
             ),
             Note(
                 id = UUID.randomUUID().toString(),
                 title = "Note 3",
                 content = "This is the third note",
+                icon = "1F680",
                 date = LocalDateTime.now()
             )
         )

@@ -31,8 +31,8 @@ class NoteControllerUnitTest {
 
     @Test
     fun givenValidNoteRequest_whenSaveNote_thenReturnOkResponse() {
-        val noteRequest: NoteRequest = NoteRequest("title", "content")
-        val noteResponse: NoteResponse = NoteResponse(UUID.randomUUID().toString(), "title", LocalDateTime.now())
+        val noteRequest: NoteRequest = NoteRequest("title", "content", "1F4DD")
+        val noteResponse: NoteResponse = NoteResponse(UUID.randomUUID().toString(), "title", "1F4DD",LocalDateTime.now())
 
         Mockito.`when`<NoteResponse>(noteService.saveNote(noteRequest)).thenReturn(noteResponse)
 
@@ -47,9 +47,9 @@ class NoteControllerUnitTest {
     fun givenNothing_whenGetAllNotes_thenReturnNoteResponseList(): Unit {
 
         val noteResponses: List<NoteResponse> = listOf<NoteResponse>(
-            NoteResponse(UUID.randomUUID().toString(), "title1", LocalDateTime.now()),
-            NoteResponse(UUID.randomUUID().toString(), "title2", LocalDateTime.now()),
-            NoteResponse(UUID.randomUUID().toString(), "title3", LocalDateTime.now())
+            NoteResponse(UUID.randomUUID().toString(), "title1", "1F4DD",LocalDateTime.now()),
+            NoteResponse(UUID.randomUUID().toString(), "title2", "1F4DD", LocalDateTime.now()),
+            NoteResponse(UUID.randomUUID().toString(), "title3", "1F4DD", LocalDateTime.now())
         )
 
         Mockito.`when`<List<NoteResponse>>(noteService.findAllNotes()).thenReturn(noteResponses)

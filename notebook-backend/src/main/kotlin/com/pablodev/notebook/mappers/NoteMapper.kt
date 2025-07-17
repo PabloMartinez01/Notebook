@@ -15,12 +15,14 @@ class NoteMapper {
         id = UUID.randomUUID().toString(),
         title = noteRequest.title,
         content = noteRequest.content,
+        icon = noteRequest.icon,
         date = LocalDateTime.now()
     )
 
     fun toNoteResponse(note: Note): NoteResponse = NoteResponse(
         id = note.id ?: throw IllegalStateException("Cannot convert to NoteResponse: id is null"),
         title = note.title,
+        icon = note.icon,
         date = note.date
     )
 
@@ -28,6 +30,7 @@ class NoteMapper {
         id = note.id ?: throw IllegalStateException("Cannot convert to NoteDetailResponse: id is null"),
         title = note.title,
         content = note.content,
+        icon = note.icon,
         date = note.date
     )
 

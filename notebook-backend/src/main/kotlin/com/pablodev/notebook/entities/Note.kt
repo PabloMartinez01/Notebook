@@ -9,5 +9,6 @@ data class Note(
     @MongoId val id: String? = null,
     val title: String,
     val content: String,
+    val icon: String,
     val date: LocalDateTime
 )
