@@ -14,11 +14,15 @@
              [value]="note()?.title"
              (change)="onChangeInput($event)"
              class="block outline-none text-xl border-b border-neutral-500 "/>
-      <ngx-emoji
 
-        [emoji]="icon()"
+      <ngx-emoji
+        [emoji]="note()?.icon ?? ''"
         (click)="controlIconPicker(true)"
-        class="absolute right-2 top-[50%] bottom-0 -translate-y-1/2 left-0 w-[1em]" ></ngx-emoji>
+        class="absolute right-2 top-[50%] bottom-0 -translate-y-1/2 left-0 w-[1em]"
+      >
+      </ngx-emoji>
+
+
     </div>
     <small class="text-xs ps-10 text-neutral-700 dark:text-neutral-400">{{note()?.date | date}}</small>
   </div>

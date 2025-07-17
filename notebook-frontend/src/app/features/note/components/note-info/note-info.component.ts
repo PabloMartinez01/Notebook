@@ -30,9 +30,7 @@ export class NoteInfoComponent {
   readonly onSave: OutputEmitterRef<void> = output<void>();
 
   note: ModelSignal<Note | null> = model.required<Note | null>();
-
   showIconPicker: WritableSignal<boolean> = signal<boolean>(false);
-  icon = signal("1F605")
 
 
   save(): void {
@@ -46,7 +44,9 @@ export class NoteInfoComponent {
   }
 
   onChangeIcon(event: { emoji: EmojiData; $event: PointerEvent }) {
-    this.icon.set(event.emoji.unified ?? '');
+    const value = event.emoji.unified;
+    if ( value && this.note())
+      this.note.update(note => note ? { ...note, icon: value } : null);
     this.showIconPicker.set(false);
   }
 

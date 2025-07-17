@@ -26,13 +26,8 @@ export class SidebarComponent {
   }
 
   navigateToNote(id: string): void {
-    this.router.navigate(['/note/', id])
+    this.router.navigate(['/note/', id]).then();
   }
 
-
-  getIcon(i: number): string {
-    const icons: string[] = ["📝", "🗒️", "🧾", "📰", "🧠", "📌", "📍", "🔖", "✏️", "🗂️", "📓", "📋"]
-    return icons[i % icons.length];
-  }
 
 }

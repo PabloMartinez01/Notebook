@@ -11,7 +11,7 @@ import {NoteRequest} from '../models/note-request.model';
 export class NoteService {
 
   private readonly API_ENDPOINT: string = "http://localhost:8080/notes"
-  private readonly DEFAULT_NOTE: NoteRequest = {title: "New note", content: ""}
+  private readonly DEFAULT_NOTE: NoteRequest = {title: "New note", content: '', icon: ''}
 
   private readonly httpClient: HttpClient = inject(HttpClient);
   private readonly _notes: WritableSignal<NoteInfo[]> = signal([]);

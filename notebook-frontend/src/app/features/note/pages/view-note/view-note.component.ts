@@ -24,8 +24,7 @@ export class ViewNoteComponent implements OnInit {
   private readonly noteService: NoteService = inject(NoteService);
 
   note: WritableSignal<Note | null> = signal(null);
-
-  content: Signal<string>= computed(() => this.note()?.content ?? '');
+  content: Signal<string> = computed(() => this.note()?.content ?? '');
 
 
   ngOnInit(): void {
@@ -40,7 +39,7 @@ export class ViewNoteComponent implements OnInit {
   saveNote(): void {
     const note: Note | null = this.note();
     if (note) {
-      this.noteService.saveNote(note.id, {title: note.title, content: note.content}).subscribe({
+      this.noteService.saveNote(note.id, {title: note.title, content: note.content, icon: note.icon}).subscribe({
         next: note => console.log(note),
         error: err => console.log(err)
       })
